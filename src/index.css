@@ -1,0 +1,276 @@
+/* Global Variables */
+:root {
+  --navbar-height: 56px;
+  --page-bg: #fff9c4;
+  --text-color: #212529;
+  --school-blue: #003366;
+  --school-yellow: #FFD700;
+}
+
+/* Global Reset and Layout */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: var(--page-bg);
+  color: var(--text-color);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main Content Spacing */
+main, .app-root, .page {
+  min-height: calc(100vh - var(--navbar-height));
+  padding-top: calc(var(--navbar-height) + 0.5rem);
+  background: transparent;
+}
+
+/* Reduced Spacing for Tighter Layout */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Cards */
+.card {
+  width: 100%;
+}
+
+/* Links */
+a, .nav-link {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+a:hover, .nav-link:hover {
+  color: #084298;
+  text-decoration: underline;
+}
+
+/* ========== NAVBAR STYLING ========== */
+.school-navbar {
+  background-color: var(--school-blue) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* School Brand - Left Side */
+.school-navbar .school-brand {
+  color: var(--school-yellow) !important;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.school-navbar .school-brand:hover {
+  color: var(--school-yellow) !important;
+  text-decoration: none !important;
+}
+
+.school-navbar .school-brand.active {
+  color: var(--school-yellow) !important;
+  text-decoration: none !important;
+}
+
+.school-navbar .school-logo {
+  height: 40px;
+  width: auto;
+  margin-right: 0.5rem;
+  display: inline-block;
+  border: 2px solid var(--school-yellow);
+}
+
+.school-navbar .brand-text {
+  display: inline-block;
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Navbar Toggle */
+.school-navbar .navbar-toggler-custom {
+  border-color: var(--school-yellow) !important;
+}
+
+/* Navigation Links - Center */
+.school-navbar .nav-links-center {
+  gap: 0.25rem;
+}
+
+.school-navbar .nav-link-custom {
+  color: var(--school-yellow) !important;
+  border: 2px solid var(--school-yellow);
+  border-radius: 5px;
+  padding: 6px 12px;
+  margin: 0 5px;
+  font-weight: 500;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.school-navbar .nav-link-custom:hover {
+  background-color: rgba(255, 215, 0, 0.3);
+  color: var(--school-yellow) !important;
+  text-decoration: none !important;
+}
+
+.school-navbar .nav-link-custom.active {
+  background-color: rgba(255, 215, 0, 0.2);
+}
+
+/* Catholic Brand - Right Side */
+.school-navbar .catholic-brand {
+  display: flex;
+  align-items: center;
+}
+
+.school-navbar .catholic-logo {
+  height: 40px;
+  width: auto;
+  border: 2px solid var(--school-yellow);
+  border-radius: 5px;
+  padding: 3px;
+  display: inline-block;
+}
+
+/* ========== CAROUSEL ========== */
+.carousel {
+  margin-top: 0.25rem;
+}
+
+.carousel-image {
+  height: calc(100vh - var(--navbar-height) - 1rem);
+  object-fit: cover;
+  display: block;
+}
+
+/* ========== STAFF PHOTOS ========== */
+.staff-photo {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* ========== MEDIA PAGE ========== */
+.media-page {
+  padding: 2rem;
+}
+
+.media-page h1 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.media-page .card {
+  min-height: 250px;
+}
+
+.media-page .card-title i {
+  color: #007bff;
+}
+
+.media-page .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.media-page .modal-content iframe {
+  width: 100%;
+  height: 400px;
+}
+
+.card .tiktok-embed {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ========== FOOTER ========== */
+.school-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #0052CC 0%, #1E90FF 50%, #FFD700 100%);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.school-footer .footer-copyright {
+  font-size: 0.9rem;
+}
+
+.school-footer .footer-link {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.school-footer .footer-link:hover {
+  color: white;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Small Screens */
+@media (max-width: 575.98px) {
+  .carousel-image {
+    height: calc(60vh - var(--navbar-height) / 2);
+  }
+  
+  .staff-photo {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* Medium+ Screens */
+@media (min-width: 768px) {
+  .school-navbar .brand-text {
+    max-width: 320px;
+  }
+
+  .school-navbar .navbar-collapse {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+  }
+
+  .school-navbar .nav-links-center {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-grow: 0 !important;
+  }
+  
+  .school-navbar .navbar-nav {
+    flex-direction: row;
+    gap: 0.25rem;
+    flex-wrap: nowrap;
+  }
+}
