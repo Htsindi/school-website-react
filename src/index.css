@@ -929,10 +929,17 @@ main, .app-root, .page {
   }
   
   .quick-stats,
-  .staff-statistics,
-  .event-poster .event-image {
+  .staff-statistics {
     background: var(--school-blue) !important;
     -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  /* Fix for event poster gradient in print */
+  .event-poster .event-image::before {
+    background: var(--school-blue) !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
   }
   
   .card {
@@ -944,6 +951,23 @@ main, .app-root, .page {
   a {
     color: var(--school-blue) !important;
     text-decoration: underline !important;
+  }
+  
+  /* Ensure text is readable in print */
+  .slide-title,
+  .stat-item h3,
+  .footer-motto p {
+    color: var(--school-blue) !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  /* Fix for any element with yellow text on blue background */
+  .stat-item p,
+  .carousel-caption-overlay,
+  .latest-message-banner {
+    color: black !important;
+    background: white !important;
   }
 }
 
