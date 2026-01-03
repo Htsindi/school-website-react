@@ -7,8 +7,8 @@ const staff = [
     "image": "https://example.com/images/john_doe.png",
     "message": "Welcome to Sacred Heart Primary School. Our dedicated team of educators and staff are committed to providing a nurturing environment where every child can thrive academically, socially, and emotionally. We believe in holistic education that develops not only academic excellence but also strong character and values.",
     "qualifications": "M.Ed in Educational Leadership, B.Ed in Primary Education",
-    "yearsOfService": "12 years",
-    "email": "principal.mcngaba@sacredheart.edu"
+    "yearsOfService": "22 years",
+    "email": "saheta@lantic.net"
   },
   {
     "name": "Mrs. F.J. Khumbula",
