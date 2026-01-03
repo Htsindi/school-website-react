@@ -7,24 +7,24 @@ function Home() {
   const carouselItems = [
     {
       id: 1,
-      image: "/assets/InClass.jpg",
+      image: "https://lh3.googleusercontent.com/pw/AP1GczP-iVz0I_9qJrHkLIyudKF2J_q8z4P55yofn4T1xCOOGeOiIb1NIi4j67JgEk-RHfonyajTdKrpZAGtkAlezh57EnXQi4d5B2ug5ZTmlCnmmViAHN0OW-kdzCR7dyO7OUO8tKlWh4UKQn6S9cYMTBcv=w1323-h882-s-no-gm?authuser=0",
       alt: "Students in Class",
       title: "In-Class Learning",
       description: "Empowering learners for a brighter future through modern teaching methods and interactive classrooms."
     },
     {
       id: 2,
-      image: "/assets/Atheletics.jpg",
+      image: "https://lh3.googleusercontent.com/pw/AP1GczN7cscBHzXPjh7xHC_9o0IT1ziNctmPV_fQvY5-Aur2-pM-YkD5O0LMCk2Kt7W1fiKgJ1ibPTEd9EghBWt3aZV5KeaiSng2A53fOUG4gSmqrBW8rkxWBgaG2cfILZfWtY4Hl-m4vUD1kVn8Kn-V7v21=w1323-h882-s-no-gm?authuser=0",
       alt: "Athletics Event",
       title: "Athletics and Sports",
       description: "Building teamwork, discipline, and sportsmanship through comprehensive athletic programs."
     },
     {
       id: 3,
-      image: "/assets/ScienceExpo.jpg",
-      alt: "Science Expo",
-      title: "Science Expo",
-      description: "Exploring innovation and creativity in our annual science fair showcasing student projects."
+      image: "https://lh3.googleusercontent.com/pw/AP1GczOEyLrItRICvLpIUSHtlCf2jDBLM3G1whviEvdkiP17xnlmFrbtrzeBVM5ippa87klkXG6_rtsuctj_s89aeT9o76Ja5G3g67P3U-8IjktybaKz4B0VTihJLkJHF6miJBv5-AKHfTuQtAuUwlhA81El=w1323-h882-s-no-gm?authuser=0",
+      alt: "Art Exhibition",
+      title: "Art Exhibition",
+      description: "Exploring innovation and creativity in our annual arts fair showcasing student projects."
     },
     {
       id: 4,

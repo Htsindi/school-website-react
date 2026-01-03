@@ -4,7 +4,7 @@ const staff = [
     "position": "Principal",
     "department": "Management",
     "Subjects": "Natural Sciences",
-    "image": "https://example.com/images/john_doe.png",
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczP13hTK-oyTco4e-SgSi1ts6UFridH7cbppsQMKzHOXGhFN79WbBtHzpLZeUMoCv8oim2tOxH3val__nAZFHOxXDFDjeIavMIOpEVlyfXAy7R7crqZuuP8r53ZJ1IfqKd83s2hCn4cCe7dmlY9J73Hy=w587-h882-s-no-gm?authuser=0",
     "message": "Welcome to Sacred Heart Primary School. Our dedicated team of educators and staff are committed to providing a nurturing environment where every child can thrive academically, socially, and emotionally. We believe in holistic education that develops not only academic excellence but also strong character and values.",
     "qualifications": "M.Ed in Educational Leadership, B.Ed in Primary Education",
     "yearsOfService": "22 years",
@@ -22,7 +22,7 @@ const staff = [
     "position": "Head of Department",
     "department": "Management",
     'Subjects': "Economics and Management Sciences",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczOqUAgtme5-HyHqWy6UI_Sjj92Qnq32kERPdItxgqwTd2RZ_kgI-YTXttb5iC8xoEug8aGk8gMb5EawuXlDQjncWQniDUP8BJW-6jIT0Y-2YnylvRE=w2400"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczNkd8byJNrnx99JJZiDdaLEOnmo1trTePJ8VqkW9LiMw1b_0pBz1AWyNSDy7IUGjCH89-I8asq80A87X8AP3HtQzrOSTtDbKSTLRCGK7kK7GBwyfnfjnD0FxjoWHxbtd_uK_HmGaT5-mLxKpClq4Y-C=w587-h882-s-no-gm?authuser=0"
   },
   {
     "name": "Mr. P. Botchway",
@@ -159,7 +159,7 @@ const staff = [
     "position": "Teacher",
     "department": "Intermediate Phase, Senior Phase",
     "Subjects": "Technology",
-    "image": "https://example.com/images/john_doe.png"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczOR0faOmDftXaRA6EEWVGoydgosztA4Km4gCUqkSyKBnZMJfS8e65GnBDJR8Cun3DQ4UlxCH4AEmlO744ET01WqWnT2J5jRNlVu3j2786BFTFsoj0tpUrtMrD94Ezu1DnCTlxy4Bibz2jbaBWfyfp3U=w587-h882-s-no-gm?authuser=0"
   },
    {
     "name": "Mrs A. De Jongh",
@@ -181,6 +181,13 @@ const staff = [
     "department": "Intermediate Phase, Senior Phase",
     "Subjects": "Social Sciences, Life Skills",
     "image": "https://lh3.googleusercontent.com/pw/AP1GczNqjSvuaeRftKX40oq_Yy0WatQ9oXEqKOb_6IDMepCNL26up9ZQsL6Nxxo2CDZ7FquNlM30HZRp12e4Wuj_e1eAvH8tQ3xYgejLGVBTFzEhM5tYKIA=w2400"
+  },
+   {
+    "name": "Ms. S. Chireshe",
+    "position": "Teacher",
+    "department": "Intermediate Phase, Senior Phase",
+    "Subjects": "Mathematics, Life Skills",
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczOZK_Oiqdw-5__4x6MOmJqpjpmbPyMj2clBA4BrZFOBvGPKDVQeKBBZIa3tIGZVK6x3IRS-dvgvJS6wwexEVOuuk5Y5JrONoZOwpcRQkP5rc7vhqb1qmlWNpxvE2NMbl9ft1STv4HpD63oo7vP2y0mG=w587-h882-s-no-gm?authuser=0",
   },
    {
     "name": "Mr P. Kikuni",
