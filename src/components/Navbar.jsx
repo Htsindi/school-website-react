@@ -1,191 +1,140 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function SchoolNavbar() {
-  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
-  const navigate = useNavigate();
-  const scrollTimeout = useRef(null);
-  const lastScrollY = useRef(0);
-  const isNavigating = useRef(false);
-  const scrollThreshold = useRef(0);
-
-  // Define the page sequence
-  const pageSequence = [
-    '/',
-    '/noticeboard',
-    '/ourschool',
-    '/media',
-    '/staff'
+  const location = useLocation();
+  const [expanded, setExpanded] = useState(false);
+  
+  // Navigation links - Added StudentLife
+  const navLinks = [
+    { path: '/', label: 'Home' },
+    { path: '/noticeboard', label: 'Noticeboard' },
+    { path: '/ourschool', label: 'Our School' },
+    { path: '/media', label: 'Media' },
+    { path: '/studentlife', label: 'Student Life' },  // Added
+    { path: '/staff', label: 'Staff' },
   ];
 
-  const isActive = (path, exact = false) => {
-    if (exact) return currentPath === path;
-    if (path === '/') return currentPath === '/';
-    return currentPath === path || currentPath.startsWith(path + '/');
+  const isActive = (path) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Prevent navigation during an ongoing transition
-      if (isNavigating.current) return;
+  // Close navbar on link click (for mobile)
+  const handleLinkClick = () => {
+    setExpanded(false);
+  };
 
-      const currentScrollY = window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight;
-      const windowHeight = window.innerHeight;
-      
-      // Only enable scroll navigation if page has enough content to scroll
-      const hasScrollableContent = documentHeight > windowHeight + 200;
-      
-      if (!hasScrollableContent) return;
+  // Apply theme colors inline
+  const navbarStyle = {
+    backgroundColor: '#003366', // Navy blue
+    borderBottom: '3px solid #FFD700', // Yellow border
+  };
 
-      const scrollDirection = currentScrollY > lastScrollY.current ? 'down' : 'up';
-      const scrolledToBottom = currentScrollY + windowHeight >= documentHeight - 100;
-      const scrolledToTop = currentScrollY <= 100;
+  const navLinkStyle = {
+    color: '#FFD700', // Yellow text
+    fontWeight: '500',
+    margin: '0 15px',
+    padding: '8px 16px',
+    borderRadius: '4px',
+    transition: 'all 0.3s ease',
+  };
 
-      // Track significant scroll movement to prevent accidental triggers
-      const scrollDelta = Math.abs(currentScrollY - scrollThreshold.current);
-      
-      lastScrollY.current = currentScrollY;
+  const activeNavLinkStyle = {
+    ...navLinkStyle,
+    backgroundColor: '#FFD700', // Yellow background
+    color: '#003366', // Navy blue text
+  };
 
-      // Clear any existing timeout
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-
-      // Set a new timeout to detect when scrolling stops
-      scrollTimeout.current = setTimeout(() => {
-        const currentIndex = pageSequence.indexOf(currentPath);
-
-        // Scroll down to next page - only if scrolled significantly
-        if (scrollDirection === 'down' && scrolledToBottom && scrollDelta > 50 && currentIndex < pageSequence.length - 1) {
-          isNavigating.current = true;
-          scrollThreshold.current = currentScrollY;
-          navigate(pageSequence[currentIndex + 1]);
-          setTimeout(() => {
-            window.scrollTo(0, 0);
-            setTimeout(() => {
-              isNavigating.current = false;
-            }, 500);
-          }, 100);
-        }
-
-        // Scroll up to previous page - only if scrolled significantly
-        if (scrollDirection === 'up' && scrolledToTop && scrollDelta > 50 && currentIndex > 0) {
-          isNavigating.current = true;
-          scrollThreshold.current = currentScrollY;
-          navigate(pageSequence[currentIndex - 1]);
-          setTimeout(() => {
-            const newDocHeight = document.documentElement.scrollHeight;
-            const newWindowHeight = window.innerHeight;
-            window.scrollTo(0, newDocHeight - newWindowHeight - 100);
-            setTimeout(() => {
-              isNavigating.current = false;
-            }, 500);
-          }, 100);
-        }
-      }, 300); // Increased delay to prevent rapid firing
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // Reset navigation flag when route changes
-    const resetNavigation = () => {
-      setTimeout(() => {
-        isNavigating.current = false;
-        scrollThreshold.current = window.scrollY;
-      }, 600);
-    };
-
-    resetNavigation();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-    };
-  }, [currentPath, navigate]);
+  const brandTextStyle = {
+    color: '#FFD700', // Yellow text for brand
+    fontWeight: 'bold',
+    fontSize: '1.2rem',
+    marginLeft: '10px',
+  };
 
   return (
     <Navbar
-      expand="md"
-      className="school-navbar"
-      variant="dark"
-      sticky="top"
+      expand="lg"
+      expanded={expanded}
+      style={navbarStyle}
+      fixed="top"
+      className="py-2"
     >
-      <Container fluid className="px-3">
-        {/* School Brand - Left Side */}
+      <Container fluid>
+        {/* Left Logo - School Logo */}
         <Navbar.Brand
           as={Link}
           to="/"
-          className="school-brand"
+          className="d-flex align-items-center"
+          onClick={handleLinkClick}
         >
           <img
             src="/assets/school-logo.png"
             alt="School Logo"
-            className="school-logo"
+            style={{
+              height: '50px',
+              width: 'auto',
+            }}
+            className="d-inline-block align-top"
           />
-          <span className="brand-text">Sacred Heart Private Primary School</span>
+          <span style={brandTextStyle} className="d-none d-md-inline">
+            Sacred Heart Private Primary School
+          </span>
         </Navbar.Brand>
 
-        <Navbar.Toggle 
-          aria-controls="responsive-navbar-nav"
-          className="navbar-toggler-custom"
-        />
-        
-        <Navbar.Collapse id="responsive-navbar-nav">
-          {/* Center Navigation Links */}
-          <Nav className="mx-auto align-items-center nav-links-center">
-            <Nav.Link 
-              as={Link} 
-              to="/" 
-              className={`nav-link-custom ${isActive('/', true) ? 'active' : ''}`}
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link 
-              as={Link} 
-              to="/noticeboard" 
-              className={`nav-link-custom ${isActive('/noticeboard') ? 'active' : ''}`}
-            >
-              Noticeboard
-            </Nav.Link>
-            <Nav.Link 
-              as={Link} 
-              to="/ourschool" 
-              className={`nav-link-custom ${isActive('/ourschool') ? 'active' : ''}`}
-            >
-              Our School
-            </Nav.Link>
-            <Nav.Link 
-              as={Link} 
-              to="/media" 
-              className={`nav-link-custom ${isActive('/media') ? 'active' : ''}`}
-            >
-              Media
-            </Nav.Link>
-            <Nav.Link 
-              as={Link} 
-              to="/staff" 
-              className={`nav-link-custom ${isActive('/staff') ? 'active' : ''}`}
-            >
-              Staff
-            </Nav.Link>
+        {/* Hamburger Toggle for Mobile */}
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          onClick={() => setExpanded(!expanded)}
+          style={{
+            borderColor: '#FFD700',
+          }}
+        >
+          <span style={{ color: '#FFD700', fontSize: '1.5rem' }}>☰</span>
+        </Navbar.Toggle>
+
+        <Navbar.Collapse id="basic-navbar-nav">
+          {/* Centered Navigation Links */}
+          <Nav className="mx-auto my-2 my-lg-0">
+            {navLinks.map((link) => (
+              <Nav.Link
+                key={link.path}
+                as={Link}
+                to={link.path}
+                style={isActive(link.path) ? activeNavLinkStyle : navLinkStyle}
+                onClick={handleLinkClick}
+                className="text-center"
+              >
+                {link.label}
+              </Nav.Link>
+            ))}
           </Nav>
 
-          {/* Catholic Brand - Right Side */}
+          {/* Right Logo - Catholic Logo */}
           <Navbar.Brand
             href="https://www.catholiceducation.org/"
             target="_blank"
             rel="noopener noreferrer"
-            className="catholic-brand ms-auto"
+            className="d-flex align-items-center ms-lg-auto"
           >
             <img
               src="/assets/catholic-logo.png"
               alt="Catholic Education"
-              className="catholic-logo"
+              style={{
+                height: '50px',
+                width: 'auto',
+              }}
+              className="d-inline-block align-top"
             />
+            <span className="d-none d-lg-inline" style={{ 
+              ...brandTextStyle, 
+              fontSize: '0.9rem',
+              marginLeft: '10px'
+            }}>
+             
+            </span>
           </Navbar.Brand>
         </Navbar.Collapse>
       </Container>
