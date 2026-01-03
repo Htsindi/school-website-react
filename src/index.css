@@ -1,276 +1,969 @@
-/* Global Variables */
+/* ============================================
+   GLOBAL VARIABLES & RESET
+   ============================================ */
+
 :root {
-  --navbar-height: 56px;
-  --page-bg: #fff9c4;
+  --navbar-height: 70px;
+  --page-bg: #ffffff;
   --text-color: #212529;
   --school-blue: #003366;
   --school-yellow: #FFD700;
+  --completed-color: #6c757d;
+  --current-color: #003366;
+  --upcoming-color: #198754;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
 }
 
-/* Global Reset and Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html, body, #root {
   height: 100%;
   margin: 0;
   background-color: var(--page-bg);
   color: var(--text-color);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
-/* Main Content Spacing */
-main, .app-root, .page {
-  min-height: calc(100vh - var(--navbar-height));
-  padding-top: calc(var(--navbar-height) + 0.5rem);
-  background: transparent;
-}
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
 
-/* Reduced Spacing for Tighter Layout */
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+h1 {
+  color: var(--school-blue);
+  font-size: 2.5rem;
+}
+
+h2 {
+  color: var(--school-blue);
+  font-size: 2rem;
+}
+
+h3 {
+  color: var(--school-blue);
+  font-size: 1.5rem;
 }
 
 p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
-/* Responsive Images */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Cards */
-.card {
-  width: 100%;
-}
-
-/* Links */
-a, .nav-link {
-  color: #0d6efd;
+a {
+  color: var(--school-blue);
   text-decoration: none;
+  transition: color var(--transition-speed) ease;
 }
 
-a:hover, .nav-link:hover {
-  color: #084298;
-  text-decoration: underline;
+a:hover {
+  color: var(--school-yellow);
 }
 
-/* ========== NAVBAR STYLING ========== */
+/* ============================================
+   LAYOUT & SPACING
+   ============================================ */
+
+main, .app-root, .page {
+  min-height: calc(100vh - var(--navbar-height));
+  padding-top: var(--navbar-height);
+  background: transparent;
+}
+
+.container-fluid {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container-fluid {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ============================================
+   COMPONENT STYLES
+   ============================================ */
+
+/* ---------- CARDS ---------- */
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform var(--transition-speed) ease, 
+              box-shadow var(--transition-speed) ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- BUTTONS ---------- */
+.btn-primary {
+  background-color: var(--school-blue);
+  border-color: var(--school-blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #002244;
+  border-color: #002244;
+}
+
+.btn-secondary {
+  background-color: var(--school-yellow);
+  border-color: var(--school-yellow);
+  color: var(--school-blue);
+}
+
+.btn-secondary:hover {
+  background-color: #e6c200;
+  border-color: #e6c200;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+
 .school-navbar {
   background-color: var(--school-blue) !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-bottom: 3px solid var(--school-yellow) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1030;
+  height: var(--navbar-height);
 }
 
-/* School Brand - Left Side */
-.school-navbar .school-brand {
+/* Brand Styling */
+.school-navbar .navbar-brand {
   color: var(--school-yellow) !important;
   font-weight: bold;
   display: flex;
   align-items: center;
-  transition: all 0.3s ease;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
-.school-navbar .school-brand:hover {
-  color: var(--school-yellow) !important;
-  text-decoration: none !important;
-}
-
-.school-navbar .school-brand.active {
-  color: var(--school-yellow) !important;
-  text-decoration: none !important;
-}
-
-.school-navbar .school-logo {
-  height: 40px;
+.school-navbar .navbar-brand img {
+  height: 50px;
   width: auto;
-  margin-right: 0.5rem;
-  display: inline-block;
+  margin-right: 10px;
   border: 2px solid var(--school-yellow);
+  border-radius: 4px;
+  padding: 2px;
 }
 
-.school-navbar .brand-text {
-  display: inline-block;
-  max-width: 180px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* Toggle Button */
+.school-navbar .navbar-toggler {
+  border: 2px solid var(--school-yellow);
+  padding: 0.25rem 0.5rem;
 }
 
-/* Navbar Toggle */
-.school-navbar .navbar-toggler-custom {
-  border-color: var(--school-yellow) !important;
+.school-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.25);
+  outline: none;
 }
 
-/* Navigation Links - Center */
-.school-navbar .nav-links-center {
-  gap: 0.25rem;
+.school-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 215, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-.school-navbar .nav-link-custom {
+/* Navigation Links */
+.school-navbar .nav-link {
   color: var(--school-yellow) !important;
-  border: 2px solid var(--school-yellow);
-  border-radius: 5px;
-  padding: 6px 12px;
-  margin: 0 5px;
   font-weight: 500;
-  background-color: transparent;
-  transition: all 0.3s ease;
-  text-decoration: none !important;
+  margin: 0 10px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all var(--transition-speed) ease;
+  text-align: center;
 }
 
-.school-navbar .nav-link-custom:hover {
-  background-color: rgba(255, 215, 0, 0.3);
-  color: var(--school-yellow) !important;
-  text-decoration: none !important;
+.school-navbar .nav-link:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  transform: translateY(-2px);
 }
 
-.school-navbar .nav-link-custom.active {
-  background-color: rgba(255, 215, 0, 0.2);
+.school-navbar .nav-link.active {
+  background-color: var(--school-yellow);
+  color: var(--school-blue) !important;
 }
 
-/* Catholic Brand - Right Side */
-.school-navbar .catholic-brand {
+/* ============================================
+   HOME PAGE - HERO CAROUSEL
+   ============================================ */
+
+.home-page {
+  padding-top: 0;
+}
+
+.hero-carousel-section {
+  position: relative;
+  height: 70vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.hero-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-caption-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 51, 102, 0.9) 0%, transparent 100%);
+  padding: 3rem 2rem;
+  color: white;
+}
+
+.overlay-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  border-left: 5px solid var(--school-yellow);
+}
+
+.slide-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--school-yellow);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slide-description {
+  font-size: 1.2rem;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Custom Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 51, 102, 0.8);
+  border: 3px solid var(--school-yellow);
+  color: var(--school-yellow);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-speed) ease;
+}
+
+.carousel-arrow:hover {
+  background: var(--school-yellow);
+  color: var(--school-blue);
+}
+
+.carousel-arrow:focus {
+  outline: 3px solid var(--school-yellow);
+  outline-offset: 3px;
+}
+
+.prev-arrow {
+  left: 2rem;
+}
+
+.next-arrow {
+  right: 2rem;
+}
+
+/* Custom Indicators */
+.custom-indicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  z-index: 10;
+}
+
+.custom-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  padding: 0;
+}
+
+.custom-indicator.active {
+  background: var(--school-yellow);
+  border-color: var(--school-yellow);
+  transform: scale(1.2);
+}
+
+.custom-indicator:hover {
+  background: var(--school-yellow);
+  border-color: var(--school-yellow);
+}
+
+/* ============================================
+   NOTICEBOARD PAGE
+   ============================================ */
+
+.noticeboard-page {
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+}
+
+.latest-message-banner {
+  background: linear-gradient(135deg, var(--school-blue), #004080);
+  color: white;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  border-left: 5px solid var(--school-yellow);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.academic-quarters-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 768px) {
+  .academic-quarters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .academic-quarters-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.quarter-card {
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed) ease;
+}
+
+.quarter-card.completed {
+  background-color: #f8f9fa;
+  border: 2px solid var(--completed-color);
+  color: var(--completed-color);
+}
+
+.quarter-card.current {
+  background-color: rgba(0, 51, 102, 0.1);
+  border: 2px solid var(--current-color);
+  color: var(--current-color);
+  box-shadow: 0 5px 15px rgba(0, 51, 102, 0.2);
+}
+
+.quarter-card.upcoming {
+  background-color: rgba(25, 135, 84, 0.1);
+  border: 2px solid var(--upcoming-color);
+  color: var(--upcoming-color);
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-indicator.completed {
+  background-color: var(--completed-color);
+}
+
+.status-indicator.current {
+  background-color: var(--current-color);
+}
+
+.status-indicator.upcoming {
+  background-color: var(--upcoming-color);
+}
+
+/* ============================================
+   OUR SCHOOL PAGE
+   ============================================ */
+
+.our-school-page {
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+}
+
+.section-header {
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.divider {
+  height: 3px;
+  width: 100px;
+  background-color: var(--school-yellow);
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.timeline {
+  list-style: none;
+  padding-left: 0;
+}
+
+.timeline li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--school-yellow);
+  font-weight: bold;
+}
+
+.ethos-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ethos-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.ethos-list li:last-child {
+  border-bottom: none;
+}
+
+.ethos-list strong {
+  color: var(--school-blue);
+  display: inline-block;
+  min-width: 100px;
+}
+
+/* ============================================
+   STAFF PAGE
+   ============================================ */
+
+.staff-page {
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+}
+
+.message-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--school-yellow);
+}
+
+/* Staff Tabs */
+.custom-tabs .nav-link {
+  color: var(--school-blue);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.25rem;
+  border-radius: 8px 8px 0 0;
+  transition: all var(--transition-speed) ease;
+}
+
+.custom-tabs .nav-link:hover {
+  color: var(--school-yellow);
+  background-color: rgba(0, 51, 102, 0.1);
+}
+
+.custom-tabs .nav-link.active {
+  color: white;
+  background-color: var(--school-blue);
+  border-color: var(--school-blue);
+}
+
+.custom-tabs .nav-link.active svg {
+  color: var(--school-yellow);
+}
+
+/* ============================================
+   MEDIA PAGE
+   ============================================ */
+
+.media-page {
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+}
+
+.event-poster {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid var(--school-yellow) !important;
+}
+
+.event-poster .event-image {
+  position: relative;
+  min-height: 300px;
+}
+
+.event-poster .event-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 51, 102, 0.9), rgba(0, 64, 128, 0.9));
+}
+
+.event-poster .event-image > div {
+  position: relative;
+  z-index: 1;
+}
+
+.social-card {
+  transition: transform var(--transition-speed) ease, 
+              box-shadow var(--transition-speed) ease !important;
+}
+
+.social-icon {
+  transition: transform var(--transition-speed) ease;
+}
+
+.social-card:hover .social-icon {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+
+.contact-page {
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+}
+
+.contact-page .form-control:focus {
+  border-color: var(--school-blue);
+  box-shadow: 0 0 0 0.25rem rgba(0, 51, 102, 0.25);
+}
+
+.contact-page .form-label {
+  font-weight: 500;
+  color: var(--school-blue);
   display: flex;
   align-items: center;
 }
 
-.school-navbar .catholic-logo {
-  height: 40px;
-  width: auto;
-  border: 2px solid var(--school-yellow);
-  border-radius: 5px;
-  padding: 3px;
-  display: inline-block;
+.office-hours .border-bottom:last-child {
+  border-bottom: none !important;
 }
 
-/* ========== CAROUSEL ========== */
-.carousel {
-  margin-top: 0.25rem;
-}
+/* ============================================
+   STUDENT LIFE PAGE
+   ============================================ */
 
-.carousel-image {
-  height: calc(100vh - var(--navbar-height) - 1rem);
-  object-fit: cover;
-  display: block;
-}
-
-/* ========== STAFF PHOTOS ========== */
-.staff-photo {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 50%;
-  margin-top: 0.25rem;
-  display: block;
-}
-
-/* ========== MEDIA PAGE ========== */
-.media-page {
-  padding: 2rem;
-}
-
-.media-page h1 {
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 2rem;
-}
-
-.media-page .card {
-  min-height: 250px;
-}
-
-.media-page .card-title i {
-  color: #007bff;
-}
-
-.media-page .card-container {
-  display: flex;
-  flex-wrap: wrap;
+.gallery-grid {
+  display: grid;
   gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.gallery-item {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  height: 250px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-speed) ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.school-footer {
+  background-color: var(--school-blue);
+  color: white;
+  padding: 1.5rem 0;
+  margin-top: auto;
+  border-top: 3px solid var(--school-yellow);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+.footer-motto {
+  font-style: italic;
+}
+
+.footer-motto p {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  color: var(--school-yellow);
+}
+
+.footer-copyright {
+  flex-grow: 1;
+  padding: 0 1rem;
+}
+
+.footer-contact {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
-.media-page .modal-content iframe {
-  width: 100%;
-  height: 400px;
-}
-
-.card .tiktok-embed {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-/* ========== FOOTER ========== */
-.school-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(135deg, #0052CC 0%, #1E90FF 50%, #FFD700 100%);
-  color: white;
-  padding: 1rem 0;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  z-index: 1000;
-}
-
-.school-footer .footer-copyright {
-  font-size: 0.9rem;
-}
-
-.school-footer .footer-link {
-  color: white;
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 1rem;
+  background: var(--school-yellow);
+  color: var(--school-blue);
+  border: none;
+  border-radius: 4px;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  min-width: 120px;
+  justify-content: center;
 }
 
-.school-footer .footer-link:hover {
-  color: white;
+.contact-btn:hover {
+  background: #e6c200;
+  color: var(--school-blue);
   text-decoration: none;
-  opacity: 0.8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* ========== RESPONSIVE DESIGN ========== */
+.footer-links {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
 
-/* Small Screens */
-@media (max-width: 575.98px) {
-  .carousel-image {
-    height: calc(60vh - var(--navbar-height) / 2);
+.footer-links a {
+  transition: color var(--transition-speed) ease;
+}
+
+.footer-links a:hover {
+  color: var(--school-yellow) !important;
+}
+
+/* ============================================
+   STATISTICS & QUICK STATS
+   ============================================ */
+
+.quick-stats,
+.staff-statistics {
+  background: linear-gradient(135deg, var(--school-blue), #004080);
+  border-radius: var(--border-radius);
+}
+
+.stat-item {
+  padding: 1rem;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--school-yellow);
+}
+
+.stat-item p {
+  margin-bottom: 0;
+  color: white;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 767.98px) {
+  /* Global Mobile Adjustments */
+  h1 {
+    font-size: 2rem;
   }
   
-  .staff-photo {
-    width: 160px;
-    height: 160px;
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  /* Navbar Mobile */
+  .school-navbar .nav-link {
+    margin: 5px 0;
+    text-align: center;
+  }
+  
+  /* Hero Carousel Mobile */
+  .hero-carousel-section {
+    height: 50vh;
+    min-height: 400px;
+  }
+  
+  .slide-title {
+    font-size: 1.8rem;
+  }
+  
+  .slide-description {
+    font-size: 1rem;
+  }
+  
+  .carousel-caption-overlay {
+    padding: 2rem 1rem;
+  }
+  
+  .overlay-content {
+    padding-left: 1rem;
+  }
+  
+  .carousel-arrow {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .prev-arrow {
+    left: 1rem;
+  }
+  
+  .next-arrow {
+    right: 1rem;
+  }
+  
+  /* Event Poster Mobile */
+  .event-poster .row {
+    flex-direction: column;
+  }
+  
+  .event-poster .event-image {
+    min-height: 200px;
+  }
+  
+  /* Footer Mobile */
+  .footer-content {
+    gap: 1rem;
+  }
+  
+  .footer-motto {
+    justify-content: center;
+  }
+  
+  .footer-contact {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .contact-btn {
+    min-width: 100px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .footer-copyright {
+    order: 1;
+    width: 100%;
+  }
+  
+  .footer-motto {
+    order: 2;
+  }
+  
+  .footer-contact {
+    order: 3;
+  }
+  
+  /* Cards Mobile */
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn {
+    width: 100%;
   }
 }
 
-/* Medium+ Screens */
-@media (min-width: 768px) {
-  .school-navbar .brand-text {
-    max-width: 320px;
-  }
-
-  .school-navbar .navbar-collapse {
-    display: flex !important;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    flex-grow: 1;
-  }
-
-  .school-navbar .nav-links-center {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-grow: 0 !important;
+@media (max-width: 576px) {
+  .hero-carousel-section {
+    height: 40vh;
+    min-height: 300px;
   }
   
-  .school-navbar .navbar-nav {
-    flex-direction: row;
-    gap: 0.25rem;
-    flex-wrap: nowrap;
+  .slide-title {
+    font-size: 1.4rem;
   }
+  
+  .slide-description {
+    font-size: 0.9rem;
+  }
+  
+  .feature-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .stat-item h3 {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.contact-btn:focus,
+.carousel-arrow:focus,
+.school-navbar .navbar-toggler:focus {
+  outline: 2px solid var(--school-yellow);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .school-navbar,
+  .school-footer,
+  .carousel-controls,
+  .carousel-arrow,
+  .btn {
+    display: none !important;
+  }
+  
+  .page,
+  .our-school-page,
+  .staff-page,
+  .media-page,
+  .contact-page {
+    padding-top: 0;
+    background: white !important;
+  }
+  
+  .quick-stats,
+  .staff-statistics,
+  .event-poster .event-image {
+    background: var(--school-blue) !important;
+    -webkit-print-color-adjust: exact;
+  }
+  
+  .card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #dee2e6 !important;
+  }
+  
+  a {
+    color: var(--school-blue) !important;
+    text-decoration: underline !important;
+  }
+}
+
+/* App Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 70px; /* Navbar height */
+}
+
+/* Home page exception - carousel goes under navbar */
+.home-page {
+  margin-top: -70px;
+}
+
+.home-page .hero-carousel-section {
+  padding-top: 70px; /* Push content down but keep background image at top */
 }

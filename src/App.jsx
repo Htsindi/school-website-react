@@ -7,21 +7,25 @@ import OurSchool from './pages/OurSchool';
 import Staff from './pages/Staff';
 import Contact from './pages/Contact';
 import Media from './pages/Media';
+import StudentLife from './pages/StudentLife';
 
 function App() {
   return (
-     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }} >
+    <div className="app-container">
       <SchoolNavbar />
-
-    
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/noticeboard" element={<NoticeBoard />} />
-        <Route path="/ourschool" element={<OurSchool />} />
-        <Route path="/staff" element={<Staff />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/media" element={<Media />} />
-      </Routes>
+      
+      {/* Main content area */}
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/noticeboard" element={<NoticeBoard />} />
+          <Route path="/ourschool" element={<OurSchool />} />
+          <Route path="/staff" element={<Staff />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/media" element={<Media />} />
+          <Route path="/studentlife" element={<StudentLife />} />
+        </Routes>
+      </div>
       
       <SchoolFooter />
     </div>
