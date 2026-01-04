@@ -217,13 +217,13 @@ function OurSchool() {
             </Col>
             <Col md={3} className="mb-3 mb-md-0">
               <div className="stat-item">
-                <h3 style={{ color: '#FFD700' }}>500+</h3>
+                <h3 style={{ color: '#FFD700' }}>700+</h3>
                 <p className="mb-0" style={{ color: 'white' }}>Students Enrolled</p>
               </div>
             </Col>
             <Col md={3} className="mb-3 mb-md-0">
               <div className="stat-item">
-                <h3 style={{ color: '#FFD700' }}>40+</h3>
+                <h3 style={{ color: '#FFD700' }}>30+</h3>
                 <p className="mb-0" style={{ color: 'white' }}>Qualified Staff</p>
               </div>
             </Col>

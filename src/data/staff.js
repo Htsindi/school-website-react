@@ -145,7 +145,7 @@ const staff = [
     "position": "Teacher",
     "department": "Intermediate Phase, Senior Phase",
     "Subjects": "Setswana Home Language",
-    "image": "https://example.com/images/john_doe.png"
+    "image": "https://www.clipartmax.com/png/middle/170-1708439_john-doe-icon-png.png"
   },
    {
     "name": "Ms P. Kruger",

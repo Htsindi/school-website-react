@@ -33,27 +33,27 @@ function Contact() {
   });
 
   const contactInfo = {
-    address: "123 Education Street, Knowledge City, 1234",
-    phone: "+27 (12) 345-6789",
+    address: "St. Pauls Mission, Magistrate Road, Taung, 8584, South Africa",
+    phone: "+27 (53) 994-1313",
     fax: "+27 (12) 345-6788",
-    email: "info@sacredheart.edu",
-    admissionsEmail: "admissions@sacredheart.edu",
+    email: "info@sacredhearttaung.edu",
+    admissionsEmail: "admissions@sacredhearttaung.edu",
     emergencyPhone: "+27 (12) 345-6780",
-    website: "www.sacredheart.edu"
+    website: "www.sacredhearttaung.edu"
   };
 
   const officeHours = [
-    { day: "Monday - Thursday", hours: "7:30 AM - 4:30 PM" },
+    { day: "Monday - Thursday", hours: "7:30 AM - 3:30 PM" },
     { day: "Friday", hours: "7:30 AM - 2:00 PM" },
-    { day: "Saturday", hours: "8:00 AM - 12:00 PM (Administration only)" },
+    { day: "Saturday", hours: "Closed" },
     { day: "Sunday", hours: "Closed" }
   ];
 
   const departments = [
-    { name: "Admissions", email: "admissions@sacredheart.edu", phone: "Ext. 101" },
-    { name: "Finance", email: "finance@sacredheart.edu", phone: "Ext. 102" },
-    { name: "Academic Office", email: "academic@sacredheart.edu", phone: "Ext. 103" },
-    { name: "Student Affairs", email: "studentaffairs@sacredheart.edu", phone: "Ext. 104" }
+    { name: "Admissions", email: "admissions@sacredhearttaung.edu", phone: "Ext. 101" },
+    { name: "Finance", email: "finance@sacredhearttaung.edu", phone: "Ext. 102" },
+    { name: "Academic Office", email: "academic@sacredhearttaung.edu", phone: "Ext. 103" },
+    { name: "Student Affairs", email: "studentaffairs@sacredhearttaung.edu", phone: "Ext. 104" }
   ];
 
   const subjects = [

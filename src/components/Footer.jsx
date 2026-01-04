@@ -39,7 +39,7 @@ function SchoolFooter() {
           {/* Copyright Message - Center */}
           <div className="footer-copyright text-center">
             <p className="mb-0" style={{ fontSize: '0.9rem', color: 'white' }}>
-              © {currentYear} Sacred Heart Private Primary School. All Rights Reserved.
+              © {currentYear} Sacred Heart Private Primary School | Dev: M.H. Tsindi.
             </p>
             <small className="text-white-50" style={{ fontSize: '0.75rem' }}>
               Registered with Department of Education | NPO Registration: 123-456
