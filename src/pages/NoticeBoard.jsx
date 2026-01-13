@@ -1,17 +1,11 @@
-import { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { useState } from 'react';
+import { Container, Row, Col, Card, Badge, ProgressBar } from 'react-bootstrap';
+import { noticeboardData } from '../data/noticeboard';
 
 function NoticeBoard() {
-  const [currentDate] = useState(new Date());
+  const [currentDate] = useState(noticeboardData.currentDate);
+  const [latestMessage] = useState(noticeboardData.latestMessage);
   
-  // Latest Message State - Updated for 2026
-  const [latestMessage, setLatestMessage] = useState({
-    title: "Welcome to 2026 Academic Year",
-    content: "School reopens on January 12th, 2026. Please ensure all students arrive by 7:30 AM for the opening assembly.",
-    date: "2026-01-03",
-    priority: "high"
-  });
-
   // Calculate term status based on current date
   const calculateTermStatus = (startDate, endDate) => {
     const start = new Date(startDate);
@@ -22,79 +16,15 @@ function NoticeBoard() {
     return 'upcoming';
   };
 
-  // Academic Quarters Data for 2026
-  const academicQuarters = [
-    {
-      id: 1,
-      name: 'Term 1 (Jan - Mar 2026)',
-      status: calculateTermStatus('2026-01-12', '2026-03-27'),
-      image: '/assets/summer.png',
-      activities: [
-        { name: 'School Opening & Orientation', status: 'completed' },
-        { name: 'First Term Assessments', status: 'completed' },
-        { name: 'Sports Day', status: 'upcoming' },
-        { name: 'Parent-Teacher Meeting', status: 'upcoming' }
-      ],
-      startDate: '2026-01-12',
-      endDate: '2026-03-27',
-      googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM1_FOLDER_ID'
-    },
-    {
-      id: 2,
-      name: 'Term 2 (Apr - Jun 2026)',
-      status: calculateTermStatus('2026-04-08', '2026-06-26'),
-      image: '/assets/autumn.png',
-      activities: [
-        { name: 'Second Term Begins', status: 'upcoming' },
-        { name: 'Mid-Year Exams', status: 'upcoming' },
-        { name: 'Cultural Day', status: 'upcoming' },
-        { name: 'Science Fair', status: 'upcoming' }
-      ],
-      startDate: '2026-04-08',
-      endDate: '2026-06-26',
-      googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM2_FOLDER_ID'
-    },
-    {
-      id: 3,
-      name: 'Term 3 (Jul - Sep 2026)',
-      status: calculateTermStatus('2026-07-21', '2026-09-23'),
-      image: '/assets/winter.png',
-      activities: [
-        { name: 'Third Term Begins', status: 'upcoming' },
-        { name: 'Art Exhibition', status: 'upcoming' },
-        { name: 'Career Guidance Week', status: 'upcoming' },
-        { name: 'Inter-school Competition', status: 'upcoming' }
-      ],
-      startDate: '2026-07-21',
-      endDate: '2026-09-23',
-      googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM3_FOLDER_ID'
-    },
-    {
-      id: 4,
-      name: 'Term 4 (Oct - Dec 2026)',
-      status: calculateTermStatus('2026-10-06', '2026-12-11'),
-      image: '/assets/spring.png',
-      activities: [
-        { name: 'Final Term Begins', status: 'upcoming' },
-        { name: 'Graduation Preparations', status: 'upcoming' },
-        { name: 'Final Exams', status: 'upcoming' },
-        { name: 'Prize Giving Day', status: 'upcoming' }
-      ],
-      startDate: '2026-10-06',
-      endDate: '2026-12-11',
-      googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM4_FOLDER_ID'
-    }
-  ];
-
   // Function to get status indicator
   const getStatusIndicator = (status) => {
     switch(status) {
       case 'completed':
-        return <span className="status-indicator completed"></span>;
+        return <span className="status-indicator completed me-2"></span>;
       case 'current':
-        return <span className="status-indicator current"></span>;
+        return <span className="status-indicator current me-2"></span>;
       case 'upcoming':
-        return <span className="status-indicator upcoming"></span>;
+        return <span className="status-indicator upcoming me-2"></span>;
       default:
         return null;
     }
@@ -136,147 +66,156 @@ function NoticeBoard() {
         status: index < 1 ? 'completed' : index === 1 ? 'current' : 'upcoming'
       }));
     }
-    return activities;
+    return activities.map(activity => ({ ...activity, status: 'upcoming' }));
   };
+
+  // Prepare academic quarters with calculated statuses
+  const academicQuarters = noticeboardData.academicQuarters.map(term => {
+    const termStatus = calculateTermStatus(term.startDate, term.endDate);
+    return {
+      ...term,
+      status: termStatus,
+      activities: updateActivityStatus(term.activities, termStatus)
+    };
+  });
 
   return (
     <div className="noticeboard-page">
       <Container className="py-4">
         {/* Page Header */}
         <div className="text-center mb-5">
-          <h1 className="mb-3" style={{ color: '#003366' }}>School Noticeboard 2026</h1>
-          <p className="lead" style={{ color: '#555' }}>
+          <h1 className="mb-3">School Noticeboard 2026</h1>
+          <p className="lead text-secondary">
             Stay updated with the latest announcements and academic calendar for 2026
           </p>
-          <div className="badge bg-info text-dark p-2">
+          <Badge bg="info" className="p-2 fs-6">
             Today: {currentDate.toLocaleDateString('en-US', { 
               weekday: 'long', 
               year: 'numeric', 
               month: 'long', 
               day: 'numeric' 
             })}
-          </div>
+          </Badge>
         </div>
 
         {/* Latest Message Banner */}
-        <div className="latest-message-banner mb-5">
-          <div className="d-flex align-items-center justify-content-between">
-            <div>
-              <h3 className="mb-2" style={{ color: '#FFD700' }}>
-                📢 {latestMessage.title}
-              </h3>
-              <p className="mb-0">{latestMessage.content}</p>
-              <small className="text-muted">
-                Posted on: {formatDate(latestMessage.date)}
-              </small>
-            </div>
-            <div className="d-none d-md-block">
-              <span className={`badge ${latestMessage.priority === 'high' ? 'bg-danger' : 'bg-warning'} p-2`}>
-                {latestMessage.priority === 'high' ? 'HIGH PRIORITY' : 'IMPORTANT'}
-              </span>
-            </div>
-          </div>
-        </div>
+        <Card className="latest-message-banner mb-5 border-0">
+          <Card.Body className="p-4">
+            <Row className="align-items-center">
+              <Col md={9}>
+                <h3 className="mb-2 text-warning">
+                  📢 {latestMessage.title}
+                </h3>
+                <p className="mb-2 fs-5 text-white">{latestMessage.content}</p>
+                <small className="text-light">
+                  Posted on: {formatDate(latestMessage.date)}
+                </small>
+              </Col>
+              <Col md={3} className="text-end d-none d-md-block">
+                <Badge 
+                  bg={latestMessage.priority === 'high' ? 'danger' : 'warning'} 
+                  className="p-3 fs-6"
+                >
+                  {latestMessage.priority === 'high' ? 'HIGH PRIORITY' : 'IMPORTANT'}
+                </Badge>
+              </Col>
+            </Row>
+          </Card.Body>
+        </Card>
 
         {/* Academic Quarters Section */}
         <section className="mb-5">
-          <h2 className="mb-4 text-center" style={{ color: '#003366' }}>
+          <h2 className="mb-4 text-center">
             2026 Academic Calendar
           </h2>
-          <p className="text-center mb-4" style={{ color: '#666' }}>
+          <p className="text-center mb-4 text-muted fs-5">
             Track the progress of each academic term with color-coded status indicators
           </p>
 
           {/* Status Legend */}
-          <div className="d-flex justify-content-center gap-4 mb-4 flex-wrap">
-            <div className="d-flex align-items-center">
-              <span className="status-indicator completed me-2"></span>
-              <span>Completed</span>
-            </div>
-            <div className="d-flex align-items-center">
-              <span className="status-indicator current me-2"></span>
-              <span>Current</span>
-            </div>
-            <div className="d-flex align-items-center">
-              <span className="status-indicator upcoming me-2"></span>
-              <span>Upcoming</span>
-            </div>
-          </div>
+          <Row className="justify-content-center mb-4">
+            <Col xs="auto">
+              <div className="d-flex gap-4 flex-wrap justify-content-center">
+                {noticeboardData.statusLegend.map((item) => (
+                  <div key={item.status} className="d-flex align-items-center">
+                    <span className={`status-indicator ${item.status} me-2`}></span>
+                    <span>{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </Col>
+          </Row>
 
           {/* Academic Quarters Grid */}
           <div className="academic-quarters-grid">
-            {academicQuarters.map((term) => {
-              const updatedActivities = updateActivityStatus(term.activities, term.status);
-              
-              return (
-                <div 
-                  key={term.id} 
-                  className={`quarter-card ${term.status}`}
-                >
+            {academicQuarters.map((term) => (
+              <Card key={term.id} className={`quarter-card ${term.status} h-100`}>
+                <Card.Body className="d-flex flex-column">
                   {/* Term Header */}
                   <div className="quarter-header mb-3">
-                    <h3 className="h4 mb-2">{term.name}</h3>
-                    <div className="d-flex align-items-center justify-content-between">
-                      <span className={`badge ${term.status === 'completed' ? 'bg-secondary' : term.status === 'current' ? 'bg-primary' : 'bg-success'}`}>
+                    <h4 className="card-title mb-2 fs-5">{term.name}</h4>
+                    <div className="d-flex align-items-center justify-content-between mb-2">
+                      <Badge bg={term.status === 'completed' ? 'secondary' : term.status === 'current' ? 'primary' : 'success'}>
                         {getStatusText(term.status)}
-                      </span>
+                      </Badge>
                       <small className="text-muted">
-                        {formatDate(term.startDate)} - {formatDate(term.endDate)}
+                        {formatDate(term.startDate)}
                       </small>
                     </div>
                   </div>
 
                   {/* Term Image */}
-                  <div className="quarter-image mb-3">
-                    <img 
+                  <div className="quarter-image mb-3 text-center">
+                    <Card.Img 
+                      variant="top" 
                       src={term.image} 
                       alt={`${term.name} visual`}
-                      className="img-fluid rounded"
-                      style={{ height: '150px', width: '100%', objectFit: 'cover' }}
+                      className="rounded"
+                      style={{ height: '150px', objectFit: 'cover' }}
                     />
                   </div>
 
                   {/* Activities List */}
-                  <div className="quarter-activities">
-                    <h4 className="h6 mb-2">Key Activities:</h4>
+                  <div className="quarter-activities flex-grow-1 mb-3">
+                    <h5 className="h6 mb-2 text-muted">Key Activities:</h5>
                     <ul className="list-unstyled mb-0">
-                      {updatedActivities.map((activity, index) => (
+                      {term.activities.map((activity, index) => (
                         <li key={index} className="mb-2 d-flex align-items-center">
                           {getStatusIndicator(activity.status)}
-                          <span className="flex-grow-1">{activity.name}</span>
-                          <small className={`badge ${
-                            activity.status === 'completed' ? 'bg-secondary' : 
-                            activity.status === 'current' ? 'bg-primary' : 'bg-success'
-                          }`}>
+                          <span className="flex-grow-1 small">{activity.name}</span>
+                          <Badge 
+                            bg={activity.status === 'completed' ? 'secondary' : 
+                                activity.status === 'current' ? 'primary' : 'success'}
+                            className="small"
+                          >
                             {activity.status}
-                          </small>
+                          </Badge>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {/* Progress Indicator */}
-                  <div className="quarter-progress mt-3 pt-3 border-top">
-                    <div className="d-flex justify-content-between align-items-center">
-                      <small>Progress:</small>
-                      <div className="progress" style={{ width: '70%', height: '8px' }}>
-                        <div 
-                          className={`progress-bar ${
-                            term.status === 'completed' ? 'bg-secondary' : 
-                            term.status === 'current' ? 'bg-primary' : 'bg-success'
-                          }`}
-                          style={{ 
-                            width: term.status === 'completed' ? '100%' : 
-                                   term.status === 'current' ? '30%' : '0%' 
-                          }}
-                          role="progressbar"
-                        ></div>
-                      </div>
+                  <div className="quarter-progress mt-auto pt-3 border-top">
+                    <div className="d-flex justify-content-between align-items-center mb-2">
+                      <small className="text-muted">Progress:</small>
+                      <span className="small">
+                        {term.status === 'completed' ? '100%' : 
+                         term.status === 'current' ? '30%' : '0%'}
+                      </span>
                     </div>
+                    <ProgressBar 
+                      variant={term.status === 'completed' ? 'secondary' : 
+                              term.status === 'current' ? 'primary' : 'success'}
+                      now={term.status === 'completed' ? 100 : 
+                            term.status === 'current' ? 30 : 0}
+                      style={{ height: '8px' }}
+                      className="mb-3"
+                    />
                     
                     {/* Photos & Videos Button */}
                     <button
-                      className="btn btn-sm w-100 mt-3"
+                      className="btn btn-sm w-100"
                       style={{ 
                         backgroundColor: term.status === 'current' ? '#003366' : 
                                         term.status === 'completed' ? '#6c757d' : '#198754',
@@ -288,69 +227,72 @@ function NoticeBoard() {
                       📸 View Photos & Videos
                     </button>
                   </div>
-                </div>
-              );
-            })}
+                </Card.Body>
+              </Card>
+            ))}
           </div>
         </section>
 
-        {/* Additional Announcements for 2026 */}
-        <section className="additional-announcements">
-          <h3 className="mb-4 text-center" style={{ color: '#003366' }}>
+        {/* Additional Announcements */}
+        <section className="additional-announcements mb-5">
+          <h3 className="mb-4 text-center">
             Recent Updates for 2026
           </h3>
-          <div className="row">
-            <div className="col-md-6 mb-3">
-              <div className="card h-100 border-start border-4 border-warning">
-                <div className="card-body">
-                  <h5 className="card-title">📅 2026 School Calendar</h5>
-                  <p className="card-text">
-                    The complete 2026 academic calendar is now available. Download it from the school portal.
-                  </p>
-                  <small className="text-muted">Posted: December 15, 2025</small>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 mb-3">
-              <div className="card h-100 border-start border-4 border-info">
-                <div className="card-body">
-                  <h5 className="card-title">🎓 Grade 7 Applications</h5>
-                  <p className="card-text">
-                    Applications for Grade 7 (2026 intake) open on February 1st, 2026. Early applications encouraged.
-                  </p>
-                  <small className="text-muted">Posted: December 20, 2025</small>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {noticeboardData.additionalAnnouncements.map((announcement) => (
+              <Col key={announcement.id}>
+                <Card className="h-100 shadow-sm border-start border-4">
+                  <Card.Body>
+                    <div className="d-flex align-items-start mb-3">
+                      <span className="fs-4 me-3">{announcement.icon}</span>
+                      <h5 className="card-title mb-0 flex-grow-1">{announcement.title}</h5>
+                    </div>
+                    <Card.Text className="mb-3">
+                      {announcement.content}
+                    </Card.Text>
+                    <small className="text-muted">
+                      Posted: {announcement.date}
+                    </small>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
         </section>
 
         {/* Term Dates Summary */}
         <section className="term-summary mt-5">
-          <div className="card border-primary">
-            <div className="card-header bg-primary text-white">
+          <Card className="border-primary shadow">
+            <Card.Header className="bg-primary text-white">
               <h4 className="mb-0">2026 Term Dates Summary</h4>
-            </div>
-            <div className="card-body">
-              <div className="row">
+            </Card.Header>
+            <Card.Body>
+              <Row xs={2} md={4} className="g-3">
                 {academicQuarters.map((term) => (
-                  <div key={term.id} className="col-md-3 col-6 mb-3">
-                    <div className={`p-3 rounded ${term.status === 'current' ? 'bg-light border border-primary' : 'bg-white'}`}>
-                      <h6 className="fw-bold">{term.name}</h6>
-                      <small className="d-block">{formatDate(term.startDate)}</small>
-                      <small className="d-block">to {formatDate(term.endDate)}</small>
-                      <span className={`badge mt-2 ${
-                        term.status === 'completed' ? 'bg-secondary' : 
-                        term.status === 'current' ? 'bg-primary' : 'bg-success'
-                      }`}>
-                        {getStatusText(term.status)}
-                      </span>
-                    </div>
-                  </div>
+                  <Col key={term.id}>
+                    <Card className={`h-100 ${term.status === 'current' ? 'border-primary' : 'border-light'}`}>
+                      <Card.Body className="text-center">
+                        <h6 className="fw-bold mb-2">{term.name}</h6>
+                        <div className="mb-2">
+                          <small className="d-block text-muted">From:</small>
+                          <small className="d-block">{formatDate(term.startDate)}</small>
+                          <small className="d-block text-muted mt-1">To:</small>
+                          <small className="d-block">{formatDate(term.endDate)}</small>
+                        </div>
+                        <Badge 
+                          bg={term.status === 'completed' ? 'secondary' : 
+                              term.status === 'current' ? 'primary' : 'success'}
+                          className="mt-2"
+                        >
+                          {getStatusText(term.status)}
+                        </Badge>
+                      </Card.Body>
+                    </Card>
+                  </Col>
                 ))}
-              </div>
-            </div>
-          </div>
+              </Row>
+            </Card.Body>
+          </Card>
         </section>
       </Container>
     </div>
