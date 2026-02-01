@@ -4,6 +4,7 @@ import {
   UserCircle, 
   BookOpen, 
   Users, 
+  Shovel,
   HelpCircle, 
   Award, 
   Mail,
@@ -80,8 +81,8 @@ function Staff() {
         const position = String(member.position || '').toLowerCase();
         const department = String(member.department || '').toLowerCase();
         
-        // Include all teachers except assistant teachers (they go to support)
-        return position.includes('teacher') && !position.includes('assistant teacher');
+        // Include all teachers except volunteer teachers (they go to volunteers/attachees)
+        return !position.includes('attachee') && position.includes('teacher') || position.includes('assistant teacher');
       });
 
       // Support staff - assistant teachers and other support roles
@@ -90,12 +91,26 @@ function Staff() {
         const position = String(member.position || '').toLowerCase();
         
         // Check if member is already in other categories
+        
         const isAdmin = administrationStaff.includes(member);
         const isAcademic = academicStaff.includes(member);
         
-        return !isAdmin && !isAcademic || position.includes('assistant teacher');
+        return !isAdmin && !isAcademic && (position.includes('general assistant') || position.includes('security'));
       });
 
+      // Other staff - assistant teachers and other support roles
+      const otherStaff = staffArray.filter(member => {
+        if (!member) return false;
+        const position = String(member.position || '').toLowerCase();
+        
+        // Check if member is already in other categories
+        const isAdmin = administrationStaff.includes(member);
+        const isAcademic = academicStaff.includes(member);
+        const isSupportStaff = supportStaff.includes(member);
+        
+        return !isAdmin && !isAcademic && !isSupportStaff && (position.includes('attachee') || position.includes('teaching volunteer'));
+      });
+      
       // Group academic staff by department based on your data structure
       const staffByDepartment = {
         'Foundation Phase (Grade R - 3)': academicStaff.filter(member => {
@@ -164,6 +179,7 @@ function Staff() {
         administrationStaff,
         academicStaff,
         supportStaff,
+        otherStaff,
         staffByDepartment,
         allStaff: staffArray
       });
@@ -204,6 +220,7 @@ function Staff() {
     administrationStaff, 
     academicStaff, 
     supportStaff, 
+    otherStaff,
     staffByDepartment,
     allStaff 
   } = processedStaffData;
@@ -549,7 +566,7 @@ function Staff() {
               eventKey="support" 
               title={
                 <div className="d-flex align-items-center gap-2">
-                  <HelpCircle size={20} />
+                  <Shovel size={20} />
                   <span>Support Staff ({supportStaff.length})</span>
                 </div>
               }
@@ -601,6 +618,63 @@ function Staff() {
                 )}
               </div>
             </Tab>
+            {/* Volunteer Tab */}
+            <Tab 
+              eventKey="otherStaff" 
+              title={
+                <div className="d-flex align-items-center gap-2">
+                  <HelpCircle size={20} />
+                  <span>Volunteers And Attachees ({otherStaff.length})</span>
+                </div>
+              }
+            >
+              <div className="mt-4">
+                <h4 className="mb-4" style={{ color: '#003366' }}>Volunteers And Attachees</h4>
+                {otherStaff.length > 0 ? (
+                  <Row className="g-4">
+                    {otherStaff.map((member, idx) => (
+                      <Col xs={12} sm={6} md={4} lg={3} key={idx}>
+                        <Card className="h-100 text-center border-top border-4 border-secondary">
+                          <Card.Body className="p-3">
+                            <Image
+                              src={getImage(member.image)}
+                              alt={member.name}
+                              className="rounded-circle mb-3"
+                              style={{ 
+                                width: '100px', 
+                                height: '100px',
+                                objectFit: 'cover'
+                              }}
+                            />
+                            <Card.Title className="h6 mb-1" style={{ color: '#003366' }}>
+                              {member.name}
+                            </Card.Title>
+                            <Card.Subtitle className="text-muted small mb-2">
+                              {member.position}
+                            </Card.Subtitle>
+                            <Card.Text className="small text-muted">
+                              {member.department || 'Support Services'}
+                            </Card.Text>
+                            {member.Subjects && (
+                              <Card.Text className="small text-muted mb-2">
+                                <strong>Subjects:</strong> {getSubjectsDisplay(member)}
+                              </Card.Text>
+                            )}
+                            <div className="mt-2">
+                              <span className="badge bg-secondary">Support</span>
+                            </div>
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                    ))}
+                  </Row>
+                ) : (
+                  <Alert variant="info">
+                    No Volunteers or Attachees found in the database.
+                  </Alert>
+                )}
+              </div>
+            </Tab>
           </Tabs>
         </section>
 
@@ -623,6 +697,12 @@ function Staff() {
               <div className="stat-item">
                 <h3 style={{ color: '#FFD700' }}>{supportStaff.length}</h3>
                 <p className="mb-0" style={{ color: 'white' }}>Support Staff</p>
+              </div>
+            </Col>
+            <Col md={3} className="mb-3 mb-md-0">
+              <div className="stat-item">
+                <h3 style={{ color: '#FFD700' }}>{otherStaff.length}</h3>
+                <p className="mb-0" style={{ color: 'white' }}>Volunteers And Attachees</p>
               </div>
             </Col>
             <Col md={3}>

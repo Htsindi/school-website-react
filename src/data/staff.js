@@ -4,7 +4,7 @@ const staff = [
     "position": "Principal",
     "department": "Management",
     "Subjects": "Natural Sciences",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczP13hTK-oyTco4e-SgSi1ts6UFridH7cbppsQMKzHOXGhFN79WbBtHzpLZeUMoCv8oim2tOxH3val__nAZFHOxXDFDjeIavMIOpEVlyfXAy7R7crqZuuP8r53ZJ1IfqKd83s2hCn4cCe7dmlY9J73Hy=w587-h882-s-no-gm?authuser=0",
+    "image":"https://lh3.googleusercontent.com/pw/AP1GczMv2Nq38lI4eETB1lvvZzPU_dC0Wd9vyIU7hpzRYMpLbjNuYLySu62NBWLhL0VDIr3W3OAqbEgwItn9V0NcekBGwiXlgu6J1SeNF_YgGX49aQfDTyCEizWTuc9bsZkF18R2P8zXGTiEX33hdm5-f_ICFg=w923-h922-s-no-gm?authuser=0",
     "message": "Welcome to Sacred Heart Primary School. Our dedicated team of educators and staff are committed to providing a nurturing environment where every child can thrive academically, socially, and emotionally. We believe in holistic education that develops not only academic excellence but also strong character and values.",
     "qualifications": "M.Ed in Educational Leadership, B.Ed in Primary Education",
     "yearsOfService": "22 years",
@@ -222,6 +222,66 @@ const staff = [
     "position": "Assistant Teacher",
     "department":"Foundation Phase",
     "Subjects": "Creative Arts",
+    "image":  "https://lh3.googleusercontent.com/pw/AP1GczOSFxzDq42DdGwit1Gf-kEBNhtBq5CTiBuS0n4yKT2475f9dNVfyGUC0QXu7H_LNBy1BQa6WxyQQmiIT3ir_9P_f5RymrCUPOgTEc3KhfOCOjpMIDk=w2400"
+  },
+   {
+    "name": "Ms. Boingotlo Dibakwe",
+    "position": "Senior General Assistant",
+    "department":"School Support",
+    "image":  "https://lh3.googleusercontent.com/pw/AP1GczOSFxzDq42DdGwit1Gf-kEBNhtBq5CTiBuS0n4yKT2475f9dNVfyGUC0QXu7H_LNBy1BQa6WxyQQmiIT3ir_9P_f5RymrCUPOgTEc3KhfOCOjpMIDk=w2400"
+  },
+   {
+    "name": "Mr. Gavin Ntatolong",
+    "position": "General Assistant",
+    "department":"School Support",
+    "image":  "https://lh3.googleusercontent.com/pw/AP1GczOSFxzDq42DdGwit1Gf-kEBNhtBq5CTiBuS0n4yKT2475f9dNVfyGUC0QXu7H_LNBy1BQa6WxyQQmiIT3ir_9P_f5RymrCUPOgTEc3KhfOCOjpMIDk=w2400"
+  },
+   {
+    "name": "Mr. Kagisho Seane",
+    "position": "General Assistant",
+    "department":"School Support",
+    "image":  "https://lh3.googleusercontent.com/pw/AP1GczOSFxzDq42DdGwit1Gf-kEBNhtBq5CTiBuS0n4yKT2475f9dNVfyGUC0QXu7H_LNBy1BQa6WxyQQmiIT3ir_9P_f5RymrCUPOgTEc3KhfOCOjpMIDk=w2400"
+  },
+   {
+    "name": "Ms. Joyce Mmokwa",
+    "position": "General Assistant",
+    "department":"School Support",
+    "image":  "https://lh3.googleusercontent.com/pw/AP1GczOSFxzDq42DdGwit1Gf-kEBNhtBq5CTiBuS0n4yKT2475f9dNVfyGUC0QXu7H_LNBy1BQa6WxyQQmiIT3ir_9P_f5RymrCUPOgTEc3KhfOCOjpMIDk=w2400"
+  },
+   {
+    "name": "Mrs. Johanna Ntloyakhumo",
+    "position": "General Assistant",
+    "department":"School Support",
+    "image":  "https://lh3.googleusercontent.com/pw/AP1GczOSFxzDq42DdGwit1Gf-kEBNhtBq5CTiBuS0n4yKT2475f9dNVfyGUC0QXu7H_LNBy1BQa6WxyQQmiIT3ir_9P_f5RymrCUPOgTEc3KhfOCOjpMIDk=w2400"
+  },
+   {
+    "name": "Mr. Thato Palagangwe",
+    "position": "General Assistant",
+    "department":"School Support",
+    "image":  "https://lh3.googleusercontent.com/pw/AP1GczOSFxzDq42DdGwit1Gf-kEBNhtBq5CTiBuS0n4yKT2475f9dNVfyGUC0QXu7H_LNBy1BQa6WxyQQmiIT3ir_9P_f5RymrCUPOgTEc3KhfOCOjpMIDk=w2400"
+  },
+   {
+    "name": "Mr. Moses Manyesa",
+    "position": "Security",
+    "department":"School Support",
+    "image":  "https://lh3.googleusercontent.com/pw/AP1GczOSFxzDq42DdGwit1Gf-kEBNhtBq5CTiBuS0n4yKT2475f9dNVfyGUC0QXu7H_LNBy1BQa6WxyQQmiIT3ir_9P_f5RymrCUPOgTEc3KhfOCOjpMIDk=w2400"
+  },
+   {
+    "name": "Mr. Bakang Dikgopo",
+    "position": "Security",
+    "department":"School Support",
+    "image":  "https://lh3.googleusercontent.com/pw/AP1GczOSFxzDq42DdGwit1Gf-kEBNhtBq5CTiBuS0n4yKT2475f9dNVfyGUC0QXu7H_LNBy1BQa6WxyQQmiIT3ir_9P_f5RymrCUPOgTEc3KhfOCOjpMIDk=w2400"
+  },
+   {
+    "name": "Ms. Lesedi Gagane",
+    "position": "Teaching Volunteer",
+    "department":"Volunteer",
+    "image":  "https://lh3.googleusercontent.com/pw/AP1GczOSFxzDq42DdGwit1Gf-kEBNhtBq5CTiBuS0n4yKT2475f9dNVfyGUC0QXu7H_LNBy1BQa6WxyQQmiIT3ir_9P_f5RymrCUPOgTEc3KhfOCOjpMIDk=w2400"
+  },
+   {
+    "name": "Ms. Refilwe Molokwane",
+    "position": "Administrative Attachee",
+    "department":"Attachement",
     "image":  "https://lh3.googleusercontent.com/pw/AP1GczOSFxzDq42DdGwit1Gf-kEBNhtBq5CTiBuS0n4yKT2475f9dNVfyGUC0QXu7H_LNBy1BQa6WxyQQmiIT3ir_9P_f5RymrCUPOgTEc3KhfOCOjpMIDk=w2400"
   }
 ]

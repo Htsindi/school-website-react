@@ -31,7 +31,7 @@ function SchoolFooter() {
                 Light - Truth - Love
               </p>
               <small className="text-white-50" style={{ fontSize: '0.8rem' }}>
-                Guiding principles since 1995
+                Guiding principles since 2000
               </small>
             </div>
           </div>

@@ -35,11 +35,11 @@ function Contact() {
   const contactInfo = {
     address: "St. Pauls Mission, Magistrate Road, Taung, 8584, South Africa",
     phone: "+27 (53) 994-1313",
-    fax: "+27 (12) 345-6788",
-    email: "info@sacredhearttaung.edu",
-    admissionsEmail: "admissions@sacredhearttaung.edu",
-    emergencyPhone: "+27 (12) 345-6780",
-    website: "www.sacredhearttaung.edu"
+    fax: "+27 (53) 994-1313",
+    email: "admin@sacredheartschooltaung.edu",
+    admissionsEmail: "admin@sacredheartschooltaung.edu",
+    emergencyPhone: "+27 (78) 466-9603",
+    website: "www.sacredheartschooltaung.edu"
   };
 
   const officeHours = [
@@ -50,10 +50,10 @@ function Contact() {
   ];
 
   const departments = [
-    { name: "Admissions", email: "admissions@sacredhearttaung.edu", phone: "Ext. 101" },
-    { name: "Finance", email: "finance@sacredhearttaung.edu", phone: "Ext. 102" },
-    { name: "Academic Office", email: "academic@sacredhearttaung.edu", phone: "Ext. 103" },
-    { name: "Student Affairs", email: "studentaffairs@sacredhearttaung.edu", phone: "Ext. 104" }
+    { name: "Admissions", email: "admin@sacredheartschooltaung.edu", phone: "Ext. 101" },
+    { name: "Finance", email: "finance@sacredheartschooltaung.edu", phone: "Ext. 102" },
+    { name: "Academic Office", email: "academic@sacredheartschooltaung.edu", phone: "Ext. 103" },
+    { name: "Student Affairs", email: "studentaffairs@sacredheartschooltaung.edu", phone: "Ext. 104" }
   ];
 
   const subjects = [

@@ -31,7 +31,7 @@ function Media() {
     {
       platform: "Facebook",
       icon: <Facebook size={24} />,
-      url: "https://facebook.com/YOUR_SCHOOL_PAGE",
+      url: "https://www.facebook.com/share/17xZT8hraS/",
       color: "#1877F2",
       description: "Follow us for updates, photos, and school announcements",
       handle: "@SacredHeartSchool"
