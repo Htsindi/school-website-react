@@ -74,7 +74,7 @@ export const noticeboardData = {
   additionalAnnouncements: [
     {
       id: 1,
-      title: "📅 2026 School Calendar",
+      title: "2026 School Calendar",
       content: "The complete 2026 academic calendar is now available. Download it from the school portal.",
       date: "December 15, 2025",
       borderColor: "border-warning",
@@ -82,7 +82,7 @@ export const noticeboardData = {
     },
     {
       id: 2,
-      title: "🎓 Grade 7 Applications",
+      title: "Grade 7 Applications",
       content: "Applications for Grade 7 (2026 intake) open on February 1st, 2026. Early applications encouraged.",
       date: "December 20, 2025",
       borderColor: "border-info",
@@ -90,7 +90,7 @@ export const noticeboardData = {
     },
     {
       id: 3,
-      title: "🏫 New Learning Resources",
+      title: "New Learning Resources",
       content: "Digital learning platform updated with new resources for all grades. Parents can access via parent portal.",
       date: "December 28, 2025",
       borderColor: "border-success",

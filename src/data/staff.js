@@ -15,21 +15,21 @@ const staff = [
     "position": "Deputy Principal",
     "department": "Management",
     "Subjects": "English Home Language",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczOt7lNEMjvY8daem688W-mtdokKnrydS9G3gjQFJMLF68VH5O01In35jFH1jk6koShoAgJrD7ERy6d8Hm-8S8XlKT0IrFwS9nVNT6JOuoXjZXkpU30=w2400"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczOFgkH409jOUc1FSCoNway4-Q_mUAcT5QNVng-tOiIgwA57YYIXKBDN1O5rXGpdAeOhh5-3gJJKGoZhdcTVtlgv26Yhx4cehIL8qhm6aGmtq5B7ibCIDPuZC_ctrUr3RRz0s2v7HtB8g1m8gQW3XiImDQ=w923-h922-s-no-gm?authuser=0"
   },
   {
     "name": "Ms. F. Hunda",
     "position": "Head of Department",
     "department": "Management",
     'Subjects': "Economics and Management Sciences",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczNkd8byJNrnx99JJZiDdaLEOnmo1trTePJ8VqkW9LiMw1b_0pBz1AWyNSDy7IUGjCH89-I8asq80A87X8AP3HtQzrOSTtDbKSTLRCGK7kK7GBwyfnfjnD0FxjoWHxbtd_uK_HmGaT5-mLxKpClq4Y-C=w587-h882-s-no-gm?authuser=0"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczOB3BErN_oG8_Zo4uFONp1ui4OZyBtKgdSMACc2XgSL9YO9KpJ3THl0h3UiqIVpS8XRcMfACsZKH-iRR2aAF3CYGxthRg3l3FSJSzhui9TETu-RWAtQB7mZICQdevU2Kxu2mx5-ct2WeOVxQrzAkJ0p3g=w923-h922-s-no-gm?authuser=0"
   },
   {
     "name": "Mr. P. Botchway",
     "position": "Head of Department",
     "department": "Management",
     "Subjects": "English Home Language",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczOBSQHtqfDzdILTTpE4BPImcITyy2tGfCHCmYQ5TgZ1e6YNqmGlrXIOfcVBHmVuHJFTGe9-U09p53Isgxwo4Wibg2b8vcnOfqR76pedpcEAzWbBFZo=w2400"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczOr9C45xykq-sHjwosB_ugvxkUx8eUPs4A3oypPLfgbh4eiWUWcOmC-dUQbEry1oTnGRtTRmkCAtk4ks5RU8ncuQuC_0Lge8mmkdtHUKmlS0DzovH8kDglhON1kkUUXkuXzGVYfTjOYObPN0_nrln3vGg=w923-h922-s-no-gm?authuser=0"
   },
   {
     "name": "Ms A. Phillipson",
@@ -68,14 +68,14 @@ const staff = [
     "position": "Teacher",
     "department": "Foundation Phase",
     "Subjects": "Grade 1",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczNSHyXOPnZOmWQ5Mr7XOpW5dhk35IvUJ_KZmZI53_vzV8ecG2w6_fEPxs9UMioULIrV2HkV5TOU5Ts6CSnZrCCD2rWIuAtYmsFV7w9gHjz1Xqn93r0JQn8yLB_JVBVMMod4dUbr_pIdL_d6Tet6BJmy=w473-h593-s-no-gm?authuser=0"
-  },
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczN9lRKexLP0_8CX-9MPgg_vcvqCstNxOjK-Iwu4pxO4aH6Hvlaj_mCTrXPsvX9UOP5S_9miydaXRLPcoL4_QHUQSxLAONY_OJnpe-5VLvr2nWjvVZ67Z-qY4HY6OyWsmKPFoUoWp_rCBXZs5M84-EDDlg=w923-h922-s-no-gm?authuser=0",
+    },
   {
     "name": "Mrs. J. Yaffi-Fosu",
     "position": "Teacher",
     "department": "Foundation Phase",
     "Subjects": "Grade 1",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczNHPCpkMsewqVGxF34lBVAVlGRu19Ec6WLUKwrN_uMFwr9jnSQ2M8trA1ZUT8hesQYNAvTlMWPHPVHKa9ylVShN7QnJa1IKEzPsg5NJuTkBfvNW1as=w2400"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczMWtb6m9bgAW5LdieUPiaTms-JknGcgNDl0mVvcYVj8Y8jtnmupxBgLLSDyU4zvPPBsrJnvVkoZ6Jkeo3kfXfZiWKmSZUa7gCkMnGZ_pyjG2g-f2LPb9VqFw7kzJ6iVY44GOXDWrYkrcmvxwb2ueMMGjQ=w923-h922-s-no-gm?authuser=0"
   },
    {
     "name": "Ms O. Namakula",
@@ -103,21 +103,21 @@ const staff = [
     "position": "Teacher",
     "department": "Foundation Phase",
     "Subjects": "Grade 3",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczN3mOX4Frc24i8hFPs1LQfmGNwWqpqJa0mdH57co042dB9kitUKY9HTfJQMxCp9ZSUc46DjowyZF9ZSTTmyWlIdLztQ03bmlsaAI2neglAqc488zPw=w2400"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczPcOFNxz29YUzRp2vDghlXZd_13xoeONGKBGGb-zHyBEDDYqtj8V26MA-LDdSIvVJ9HKbdz6QEEMdBHbjKFZw4lvO1oFYo-JHXiBL3Ek4stuVI3vizlhUyZYE_TomWIb0iqIdXK0VqDPvDMOHuRowC9sQ=w923-h922-s-no-gm?authuser=0"
   },
    {
     "name": "Mr J. Appiah",
     "position": "Teacher",
     "department": "Intermediate Phase, Senior Phase",
     "Subjects": "Natural Sciences",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczOk7_N7viupoKwcz3lCCgsVCSpOKbOHCJofHH8Th9GljzydtgyL5gEsVbHXTvY3_6kNfmqmQZyQbGXC_HqggNKmrISsR5lMlKvGFrMju5-ASwvcGZU=w2400"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczOhdPAEA7gIh4g_CfrwP7PQjIHNq4vCzZqt337PnVUFBSJYbcqzQrT-k8z8y89XTQJbFxs2gvzQq6a7OeDG8zpk04f0O94uhCKgFOrsFIIV3HeUN3oKBwOTnjpDRRzJRkISwkTgSINrXQh2BvZNalgYog=w923-h922-s-no-gm?authuser=0"
   },
    {
     "name": "Mr D. Asiedu",
     "position": "Teacher",
     "department": "Intermediate Phase, Senior Phase",
     "Subjects": "Social Sciences",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczN5nuOggXmm5kzOXZvJAfKnM1MEGgEPSLHbCBUpqGNB89v1HrVRUWsv7YMMnfU1craPfd4NlJpwtFiCohiG4SKcI-7laYH4pFHlkWEAMBNnJ4p6PXw=w2400"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczNljKp-j8XiDIFakVOMsA7R-Vo5zDpdGBDCNq0Cnatb_KAMKcTH24rzKJm65icLdQtojtsqqD7n6fMBgpPgp4T5ZpL8Zgy0K3civRD6bfq-hsyOQpCiLgzEbpjIupjibkzssp301Ws2d64egMoEZOBMkQ=w923-h922-s-no-gm?authuser=0"
   },
    {
     "name": "Mr K. Muchibo",
@@ -138,7 +138,7 @@ const staff = [
     "position": "Teacher",
     "department": "Intermediate Phase, Senior Phase",
     "Subjects": "Mathematics",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczOd1TMX1bAxMIlIFUVCvcCPOt1DHEohS0I5alQQ_QelQ_-A-3KwllY43NfT9GpnT7XEDrWoNnVH1yXXZFzTBgyuUVZwrNDcvA2L8Gw5iQhw_Rzada8=w2400"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczOakqy0ncMztcsYQfhRSkEfBGlyDqs5cUIsW-7t3Td45OX6b6vr8qeDYq1aojfKeRsOLGY05q8kQAoz-N-kQGT7JTfvp7gdqOgcbomdv6zERZ5164fFOAZexth2wGoQKKzUxVlF2DVGFTkZ_b_gFV_pOw=w923-h922-s-no-gm?authuser=0"
   },
    {
     "name": "Mr O. Gabogope",
@@ -152,7 +152,7 @@ const staff = [
     "position": "Teacher",
     "department": "Intermediate Phase, Senior Phase",
     "Subjects": "Afrikaans Home Language Language",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczPETSFkt6UTNAT2RKexhfKBWsZSUtGuZ-DVY9QlkjZBG4OHXW36-LBdbaYDNNaotw8qnyuoqGcaQM7TbtEZ0Ap8OmcNI18xNTHJyKd-xrGMD196WaQ=w2400"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczNLstTmNX9zhi6e1zo8IJQwxWDXeIunEwVDdHPGpjlmENqKWGzwljQhWEPTNmZCbOXJuPjTxL0Pe_t1_PPOb3Io25dLCfY8xrAyjXOZKu6zQVHpEBy77IZ9ZjGoq-6eMrxx9a9KMcSBBjOlHhLyNJgboA=w923-h922-s-no-gm?authuser=0"
   },
    {
     "name": "Mr. Annor",
@@ -196,12 +196,19 @@ const staff = [
     "Subjects": "Creative Arts, Life Skills",
     "image": "https://lh3.googleusercontent.com/pw/AP1GczP9JYWu3H3ZN_zk5VHL7sRx7S18C4nRc9czUi1oX6ohPZ-NTlVA1L03vGlicpDtrTPLde-2fwJKh1FtnqEmUC0sSKjwO_tt0aCtOOQ_aBHKgpxx4Qw=w2400"
   },
+     {
+    "name": "Mr S. Dakura",
+    "position": "Teacher",
+    "department": "Intermediate Phase, Senior Phase",
+    "Subjects": "Mathematics, English Home Language",
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczOUdb3skI_p73kDOyo-2qIyPZjCqlk0XLLyU3DtTKmil1nfEopv3KD3ewrfvQvoC2RpODnLVKk3cQr-b0hsAZnWsvpE80Gra5nJluZsdUTHKGRQy12Sz4joNRd3_xIWjEf_jDxerdSnXdPnl67hN2zBSQ=w923-h922-s-no-gm?authuser=0"
+  },
    {
     "name": "Mr. M.H. Tsindi",
     "position": "Teacher",
     "department": "Foundation Phase, Intermediate Phase, Senior Phase",
     "Subjects": "Computer Studies, Life Orientation",
-    "image": "https://lh3.googleusercontent.com/pw/AP1GczM8BOQxWQKEDfCo--8YajYq2qNrEkqSfryr8GunK8wGPpUbXHMgs9QtFnyR3fR45QOIeSdd7nCI3HK4cUJjac80UPPeBaR6jvSTMNuN_rKVYrO7Xpw=w2400"
+    "image": "https://lh3.googleusercontent.com/pw/AP1GczOSqw1lCb6RlU6YwjRe-VcI7itNH1DlA5c-Tq_VJWAog-yLnZmJJAMz08Lr8sLc_UIpiPyoBTpXguU5pR1sD6gNtkoS03f6kow0FrXu5R532mS-A7pY_FEic2sm2pC1sIjUJGWeN60Lr6IxrF5-9RcIcQ=w923-h922-s-no-gm?authuser=0"
   },
   {
 "name": "Mrs B. Matolong",
