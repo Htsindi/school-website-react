@@ -15,10 +15,10 @@ export const noticeboardData = {
       status: '', // Will be calculated dynamically
       image: '/assets/summer.png',
       activities: [
-        { name: 'School Opening & Orientation', status: '' },
-        { name: 'First Term Assessments', status: '' },
-        { name: 'Sports Day', status: '' },
-        { name: 'Parent-Teacher Meeting', status: '' }
+        { name: 'School Opening & Orientation', status: '', date: '2026-01-12' },
+        { name: 'First Term Assessments', status: '', date: '2026-02-15' },
+        { name: 'Sports Day', status: '', date: '2026-03-05' },
+        { name: 'Parent-Teacher Meeting', status: '', date: '2026-03-20' }
       ],
       startDate: '2026-01-12',
       endDate: '2026-03-27',
@@ -30,10 +30,10 @@ export const noticeboardData = {
       status: '',
       image: '/assets/autumn.png',
       activities: [
-        { name: 'Second Term Begins', status: '' },
-        { name: 'Mid-Year Exams', status: '' },
-        { name: 'Cultural Day', status: '' },
-        { name: 'Science Fair', status: '' }
+        { name: 'Second Term Begins', status: '', date: '2026-04-08' },
+        { name: 'Mid-Year Exams', status: '', date: '2026-05-10' },
+        { name: 'Cultural Day', status: '', date: '2026-05-22' },
+        { name: 'Science Fair', status: '', date: '2026-06-15' }
       ],
       startDate: '2026-04-08',
       endDate: '2026-06-26',
@@ -45,10 +45,10 @@ export const noticeboardData = {
       status: '',
       image: '/assets/winter.png',
       activities: [
-        { name: 'Third Term Begins', status: '' },
-        { name: 'Art Exhibition', status: '' },
-        { name: 'Career Guidance Week', status: '' },
-        { name: 'Inter-school Competition', status: '' }
+        { name: 'Third Term Begins', status: '', date: '2026-07-21' },
+        { name: 'Art Exhibition', status: '', date: '2026-08-05' },
+        { name: 'Career Guidance Week', status: '', date: '2026-08-25' },
+        { name: 'Inter-school Competition', status: '', date: '2026-09-15' }
       ],
       startDate: '2026-07-21',
       endDate: '2026-09-23',
@@ -60,10 +60,10 @@ export const noticeboardData = {
       status: '',
       image: '/assets/spring.png',
       activities: [
-        { name: 'Final Term Begins', status: '' },
-        { name: 'Graduation Preparations', status: '' },
-        { name: 'Final Exams', status: '' },
-        { name: 'Prize Giving Day', status: '' }
+        { name: 'Final Term Begins', status: '', date: '2026-10-06' },
+        { name: 'Graduation Preparations', status: '', date: '2026-11-10' },
+        { name: 'Final Exams', status: '', date: '2026-11-25' },
+        { name: 'Prize Giving Day', status: '', date: '2026-12-05' }
       ],
       startDate: '2026-10-06',
       endDate: '2026-12-11',
@@ -104,3 +104,47 @@ export const noticeboardData = {
     { status: 'upcoming', label: 'Upcoming', color: 'bg-success' }
   ]
 };
+
+// Function to calculate activity statuses based on current date
+export function calculateActivityStatuses(data) {
+  const currentDate = data.currentDate;
+  const currentTime = currentDate.getTime();
+  const fourteenDaysMs = 14 * 24 * 60 * 60 * 1000; // 14 days in milliseconds
+  
+  // Process each academic quarter
+  data.academicQuarters.forEach(quarter => {
+    // Calculate quarter status based on start and end dates
+    const quarterStartDate = new Date(quarter.startDate);
+    const quarterEndDate = new Date(quarter.endDate);
+    
+    if (currentDate > quarterEndDate) {
+      quarter.status = 'completed';
+    } else if (currentDate >= quarterStartDate && currentDate <= quarterEndDate) {
+      quarter.status = 'current';
+    } else {
+      quarter.status = 'upcoming';
+    }
+    
+    // Calculate activity statuses
+    quarter.activities.forEach(activity => {
+      const activityDate = new Date(activity.date);
+      const activityTime = activityDate.getTime();
+      const timeDifference = activityTime - currentTime;
+      
+      if (activityDate < currentDate) {
+        activity.status = 'completed';
+      } else if (timeDifference <= fourteenDaysMs && timeDifference > 0) {
+        activity.status = 'current';
+      } else if (timeDifference > fourteenDaysMs) {
+        activity.status = 'upcoming';
+      } else {
+        activity.status = 'current'; // For same day events
+      }
+    });
+  });
+  
+  return data;
+}
+
+// Initialize the data with calculated statuses
+export const initializedNoticeboardData = calculateActivityStatuses(noticeboardData);
