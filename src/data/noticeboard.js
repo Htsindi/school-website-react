@@ -14,12 +14,99 @@ export const noticeboardData = {
       name: 'Term 1 (Jan - Mar 2026)',
       status: '', // Will be calculated dynamically
       image: '/assets/summer.png',
-      activities: [
-        { name: 'School Opening & Orientation', status: '', date: '2026-01-12' },
-        { name: 'First Term Assessments', status: '', date: '2026-02-15' },
-        { name: 'Sports Day', status: '', date: '2026-03-05' },
-        { name: 'Parent-Teacher Meeting', status: '', date: '2026-03-20' }
-      ],
+      activities: 
+      [
+  {
+    name: 'Inter-house Athletics',
+    status: '',
+    date: '6 February',
+    time: '08:00',
+    location: 'School Grounds'
+  },
+  {
+    name: 'Reopening for learners; inaugural assembly; classroom allocation',
+    status: '',
+    date: '14 January',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'Fun Day',
+    status: '',
+    date: '26 March',
+    time: '08:00',
+    location: 'school'
+  },
+  {
+    name: 'Prefect Induction Workshop',
+    status: '',
+    date: '29 January',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'SCHOOL OPENING MASS, Prefect Pledge and blessing.',
+    status: '',
+    date: '30 January',
+    time: '07:40',
+    location: 'St. Pauls Catholic Church'
+  },
+  {
+    name: 'Human Traffic Awareness Talk (Grade 5 to 7)',
+    status: '',
+    date: '05 February',
+    time: '07:40',
+    location: 'school Hall'
+  },
+  {
+    name: 'Greater Taung and Kagisano Molopo Athletics',
+    status: '',
+    date: '13 February',
+    time: '07:40',
+    location: 'Mokgareng High School, Taung'
+  },
+    {
+    name: 'Annual General Meeting  Foundation Phase (Grade R to 3)',
+    status: '',
+    date: '14 February',
+    time: '07:40',
+    location: 'school Hall'
+  },
+  {
+    name: 'ASH WEDNESDAY',
+    status: '',
+    date: '18 February',
+    time: '07:40',
+    location: 'St. Pauls Catholic Church'
+  },
+  {
+    name: 'Annual General Meeting  Intermediate & Senior Phase',
+    status: '',
+    date: '21 February',
+    time: '07:40',
+    location: 'school Hall'
+  },
+  {
+    name: 'SCHOOL MASS - Catholic Schools Teachers’ Day (Mogwase)',
+    status: '',
+    date: '27 February',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'END OF TERM THANKSGIVING MASS',
+    status: '',
+    date: '18 March',
+    time: '07:40',
+    location: 'St. Pauls Catholic Church'
+  }, {
+    name: 'Issuing of Term 1 Report Cards',
+    status: '',
+    date: '27 March',
+    time: '07:40',
+    location: 'school classrooms'
+  }
+],
       startDate: '2026-01-12',
       endDate: '2026-03-27',
       googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM1_FOLDER_ID'
@@ -29,12 +116,79 @@ export const noticeboardData = {
       name: 'Term 2 (Apr - Jun 2026)',
       status: '',
       image: '/assets/autumn.png',
-      activities: [
-        { name: 'Second Term Begins', status: '', date: '2026-04-08' },
-        { name: 'Mid-Year Exams', status: '', date: '2026-05-10' },
-        { name: 'Cultural Day', status: '', date: '2026-05-22' },
-        { name: 'Science Fair', status: '', date: '2026-06-15' }
-      ],
+      activities: 
+      [
+  {
+    name: 'Reopening for Admin Staff and General Staff',
+    status: '',
+    date: '07 April',
+    time: '08:00',
+    location: 'school offices'
+  },
+  {
+    name: 'Reopening for learners and teaching staff',
+    status: '',
+    date: '08 April',
+    time: '07:40',
+    location: 'school'
+  },
+   {
+    name: 'One-on-One Parent Support and Intervention Meeting (Grade R–7)',
+    status: '',
+    date: '16 April',
+    time: '07:40',
+    location: 'school Classesrooms'
+  },
+  {
+    name: 'SCHOOL MASS',
+    status: '',
+    date: '30 April',
+    time: '07:40',
+    location: 'St. Pauls Catholic Church'
+  },
+  {
+    name: 'Deadline for Conquesta Registration/Entry',
+    status: '',
+    date: '04 May',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'SCHOOL MASS:  SACRED HEART DAY',
+    status: '',
+    date: '29 May',
+    time: '07:40',
+    location: 'St. Pauls Catholic Church'
+  },
+  {
+    name: 'Library Competition: Spelling Bee and Reading Challenge',
+    status: '',
+    date: '15 June',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'Inter-house Indoor Games',
+    status: '',
+    date: '29 May',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'Fun Day',
+    status: '',
+    date: '25 June',
+    time: '08:00',
+    location: 'School Grounds'
+  },
+  {
+    name: 'Issuing of Term 2 Report Cards',
+    status: '',
+    date: '26 June',  
+    time: '07:40',
+    location: 'school classrooms'
+  }
+],
       startDate: '2026-04-08',
       endDate: '2026-06-26',
       googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM2_FOLDER_ID'
@@ -44,12 +198,58 @@ export const noticeboardData = {
       name: 'Term 3 (Jul - Sep 2026)',
       status: '',
       image: '/assets/winter.png',
-      activities: [
-        { name: 'Third Term Begins', status: '', date: '2026-07-21' },
-        { name: 'Art Exhibition', status: '', date: '2026-08-05' },
-        { name: 'Career Guidance Week', status: '', date: '2026-08-25' },
-        { name: 'Inter-school Competition', status: '', date: '2026-09-15' }
-      ],
+      activities: 
+      [
+  {
+    name: 'Reopening for Admin Staff and General Staff',
+    status: '',
+    date: '20 July',
+    time: '08:00',
+    location: 'school Offices'
+  },
+  {
+    name: 'Reopening for learners and teaching staff',
+    status: 'One on One Parent Support and Intervention Meeting (Grade R to 7)',
+    date: '28 July',
+    time: '08:00',
+    location: 'School Classrooms'
+  },
+  {
+    name: 'School Mass',
+    status: '',
+    date: '31 July',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'Science, Mathematics and Technology Expo',
+    status: '',
+    date: '31 July',
+    time: '07:40',
+    location: 'To be confirmed'
+  },
+  {
+    name: 'School Mass',
+    status: '',
+    date: '28 August',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'End of term Mass and Thanksgiving',
+    status: '',
+    date: '18 September',
+    time: '08:00',
+    location: 'St. Pauls Catholic Church'
+  },
+  {
+    name: 'Heritage Day and Official Closing Date',
+    status: '',
+    date: '23 September',
+    time: '08:00',
+    location: 'school'
+  }
+]      ,
       startDate: '2026-07-21',
       endDate: '2026-09-23',
       googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM3_FOLDER_ID'
@@ -59,12 +259,73 @@ export const noticeboardData = {
       name: 'Term 4 (Oct - Dec 2026)',
       status: '',
       image: '/assets/spring.png',
-      activities: [
-        { name: 'Final Term Begins', status: '', date: '2026-10-06' },
-        { name: 'Graduation Preparations', status: '', date: '2026-11-10' },
-        { name: 'Final Exams', status: '', date: '2026-11-25' },
-        { name: 'Prize Giving Day', status: '', date: '2026-12-05' }
-      ],
+      activities: 
+      [
+  {
+    name: 'Reopening for Admin Staff and General Staff',
+    status: '',
+    date: '05 October',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'Reopening for learners and teaching staff',
+    status: '',
+    date: '06 October',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'Academic Support: Extra Classes, Revision and Intervention Programmes (Wednesdays: 13h10–14h50)',
+    status: '',
+    date: '21 October',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'Educational Trip Foundation Phase ',
+    status: '',
+    date: '16 October',
+    time: '07:40',
+    location: 'To be confirmed'
+  },
+   {
+    name: 'Educational Trip Grade R',
+    status: '',
+    date: '20 November',
+    time: '07:40',
+    location: 'To be confirmed'
+  },
+    {
+    name: 'CLOSING MASS FOR THE YEAR AND EXAM BLESSINGS',
+    status: '',
+    date: '30 October',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'Christmas Play Presented by Foundation Phase (Family Picnic Day Celebration)',
+    status: '',
+    date: '24 November',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'Grade R Graduation and Prize-giving For Grade 1–6',
+    status: '',
+    date: '26 November',
+    time: '07:40',
+    location: 'school'
+  },
+  {
+    name: 'Grade 7 Farewell and Prize-giving',
+    status: '',
+    date: '27 November',
+    time: '07:40',
+    location: 'school'
+  }
+]
+      ,
       startDate: '2026-10-06',
       endDate: '2026-12-11',
       googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM4_FOLDER_ID'

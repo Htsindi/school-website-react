@@ -1,20 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Badge, ProgressBar } from 'react-bootstrap';
-import { noticeboardData } from '../data/noticeboard';
+import { initializedNoticeboardData, noticeboardData } from '../data/noticeboard';
 
 function NoticeBoard() {
+  const [data, setData] = useState(null);
   const [currentDate] = useState(noticeboardData.currentDate);
-  const [latestMessage] = useState(noticeboardData.latestMessage);
   
-  // Calculate term status based on current date
-  const calculateTermStatus = (startDate, endDate) => {
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-    
-    if (currentDate > end) return 'completed';
-    if (currentDate >= start && currentDate <= end) return 'current';
-    return 'upcoming';
-  };
+  useEffect(() => {
+    // Use the initialized data with calculated statuses
+    setData(initializedNoticeboardData);
+  }, []);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
 
   // Function to get status indicator
   const getStatusIndicator = (status) => {
@@ -55,29 +54,31 @@ function NoticeBoard() {
     window.open(folderUrl, '_blank', 'noopener,noreferrer');
   };
 
-  // Update activity status based on current date
-  const updateActivityStatus = (activities, termStatus) => {
-    if (termStatus === 'completed') {
-      return activities.map(activity => ({ ...activity, status: 'completed' }));
-    } else if (termStatus === 'current') {
-      // Simulate some completed activities for current term
-      return activities.map((activity, index) => ({
-        ...activity,
-        status: index < 1 ? 'completed' : index === 1 ? 'current' : 'upcoming'
-      }));
-    }
-    return activities.map(activity => ({ ...activity, status: 'upcoming' }));
+  // Calculate completed activities percentage
+  const calculateProgressPercentage = (activities) => {
+    const completedCount = activities.filter(activity => activity.status === 'completed').length;
+    return activities.length > 0 ? Math.round((completedCount / activities.length) * 100) : 0;
   };
 
-  // Prepare academic quarters with calculated statuses
-  const academicQuarters = noticeboardData.academicQuarters.map(term => {
-    const termStatus = calculateTermStatus(term.startDate, term.endDate);
-    return {
-      ...term,
-      status: termStatus,
-      activities: updateActivityStatus(term.activities, termStatus)
-    };
-  });
+  // Get progress variant based on status
+  const getProgressVariant = (status) => {
+    switch(status) {
+      case 'completed': return 'secondary';
+      case 'current': return 'primary';
+      case 'upcoming': return 'success';
+      default: return 'secondary';
+    }
+  };
+
+  // Get status color for badges
+  const getStatusColor = (status) => {
+    switch(status) {
+      case 'completed': return 'secondary';
+      case 'current': return 'primary';
+      case 'upcoming': return 'success';
+      default: return 'secondary';
+    }
+  };
 
   return (
     <div className="noticeboard-page">
@@ -104,19 +105,19 @@ function NoticeBoard() {
             <Row className="align-items-center">
               <Col md={9}>
                 <h3 className="mb-2 text-warning">
-                  📢 {latestMessage.title}
+                  📢 {data.latestMessage.title}
                 </h3>
-                <p className="mb-2 fs-5 text-white">{latestMessage.content}</p>
+                <p className="mb-2 fs-5 text-white">{data.latestMessage.content}</p>
                 <small className="text-light">
-                  Posted on: {formatDate(latestMessage.date)}
+                  Posted on: {formatDate(data.latestMessage.date)}
                 </small>
               </Col>
               <Col md={3} className="text-end d-none d-md-block">
                 <Badge 
-                  bg={latestMessage.priority === 'high' ? 'danger' : 'warning'} 
+                  bg={data.latestMessage.priority === 'high' ? 'danger' : 'warning'} 
                   className="p-3 fs-6"
                 >
-                  {latestMessage.priority === 'high' ? 'HIGH PRIORITY' : 'IMPORTANT'}
+                  {data.latestMessage.priority === 'high' ? 'HIGH PRIORITY' : 'IMPORTANT'}
                 </Badge>
               </Col>
             </Row>
@@ -136,7 +137,7 @@ function NoticeBoard() {
           <Row className="justify-content-center mb-4">
             <Col xs="auto">
               <div className="d-flex gap-4 flex-wrap justify-content-center">
-                {noticeboardData.statusLegend.map((item) => (
+                {data.statusLegend.map((item) => (
                   <div key={item.status} className="d-flex align-items-center">
                     <span className={`status-indicator ${item.status} me-2`}></span>
                     <span>{item.label}</span>
@@ -148,18 +149,18 @@ function NoticeBoard() {
 
           {/* Academic Quarters Grid */}
           <div className="academic-quarters-grid">
-            {academicQuarters.map((term) => (
+            {data.academicQuarters.map((term) => (
               <Card key={term.id} className={`quarter-card ${term.status} h-100`}>
                 <Card.Body className="d-flex flex-column">
                   {/* Term Header */}
                   <div className="quarter-header mb-3">
                     <h4 className="card-title mb-2 fs-5">{term.name}</h4>
                     <div className="d-flex align-items-center justify-content-between mb-2">
-                      <Badge bg={term.status === 'completed' ? 'secondary' : term.status === 'current' ? 'primary' : 'success'}>
+                      <Badge bg={getStatusColor(term.status)}>
                         {getStatusText(term.status)}
                       </Badge>
                       <small className="text-muted">
-                        {formatDate(term.startDate)}
+                        {formatDate(term.startDate)} - {formatDate(term.endDate)}
                       </small>
                     </div>
                   </div>
@@ -180,15 +181,21 @@ function NoticeBoard() {
                     <h5 className="h6 mb-2 text-muted">Key Activities:</h5>
                     <ul className="list-unstyled mb-0">
                       {term.activities.map((activity, index) => (
-                        <li key={index} className="mb-2 d-flex align-items-center">
+                        <li key={index} className="mb-2 d-flex align-items-start">
                           {getStatusIndicator(activity.status)}
-                          <span className="flex-grow-1 small">{activity.name}</span>
+                          <div className="flex-grow-1">
+                            <span className="small">{activity.name}</span>
+                            <br />
+                            <small className="text-muted">
+                              <i className="bi bi-calendar me-1"></i>
+                              {formatDate(activity.date)}
+                            </small>
+                          </div>
                           <Badge 
-                            bg={activity.status === 'completed' ? 'secondary' : 
-                                activity.status === 'current' ? 'primary' : 'success'}
-                            className="small"
+                            bg={getStatusColor(activity.status)}
+                            className="small ms-2"
                           >
-                            {activity.status}
+                            {getStatusText(activity.status)}
                           </Badge>
                         </li>
                       ))}
@@ -200,15 +207,12 @@ function NoticeBoard() {
                     <div className="d-flex justify-content-between align-items-center mb-2">
                       <small className="text-muted">Progress:</small>
                       <span className="small">
-                        {term.status === 'completed' ? '100%' : 
-                         term.status === 'current' ? '30%' : '0%'}
+                        {calculateProgressPercentage(term.activities)}%
                       </span>
                     </div>
                     <ProgressBar 
-                      variant={term.status === 'completed' ? 'secondary' : 
-                              term.status === 'current' ? 'primary' : 'success'}
-                      now={term.status === 'completed' ? 100 : 
-                            term.status === 'current' ? 30 : 0}
+                      variant={getProgressVariant(term.status)}
+                      now={calculateProgressPercentage(term.activities)}
                       style={{ height: '8px' }}
                       className="mb-3"
                     />
@@ -239,7 +243,7 @@ function NoticeBoard() {
             Recent Updates for 2026
           </h3>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {noticeboardData.additionalAnnouncements.map((announcement) => (
+            {data.additionalAnnouncements.map((announcement) => (
               <Col key={announcement.id}>
                 <Card className="h-100 shadow-sm border-start border-4">
                   <Card.Body>
@@ -268,7 +272,7 @@ function NoticeBoard() {
             </Card.Header>
             <Card.Body>
               <Row xs={2} md={4} className="g-3">
-                {academicQuarters.map((term) => (
+                {data.academicQuarters.map((term) => (
                   <Col key={term.id}>
                     <Card className={`h-100 ${term.status === 'current' ? 'border-primary' : 'border-light'}`}>
                       <Card.Body className="text-center">
@@ -279,9 +283,20 @@ function NoticeBoard() {
                           <small className="d-block text-muted mt-1">To:</small>
                           <small className="d-block">{formatDate(term.endDate)}</small>
                         </div>
+                        <div className="mb-2">
+                          <small className="d-block text-muted">Activities:</small>
+                          <small className="d-block">
+                            {term.activities.filter(a => a.status === 'completed').length} completed
+                          </small>
+                          <small className="d-block">
+                            {term.activities.filter(a => a.status === 'current').length} current
+                          </small>
+                          <small className="d-block">
+                            {term.activities.filter(a => a.status === 'upcoming').length} upcoming
+                          </small>
+                        </div>
                         <Badge 
-                          bg={term.status === 'completed' ? 'secondary' : 
-                              term.status === 'current' ? 'primary' : 'success'}
+                          bg={getStatusColor(term.status)}
                           className="mt-2"
                         >
                           {getStatusText(term.status)}
