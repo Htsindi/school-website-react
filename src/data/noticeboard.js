@@ -19,42 +19,42 @@ export const noticeboardData = {
   {
     name: 'Inter-house Athletics',
     status: '',
-    date: '6 February',
+    date: '6 February 2026',
     time: '08:00',
     location: 'School Grounds'
   },
   {
     name: 'Reopening for learners; inaugural assembly; classroom allocation',
     status: '',
-    date: '14 January',
+    date: '14 January 2026',
     time: '07:40',
     location: 'school'
   },
   {
     name: 'Fun Day',
     status: '',
-    date: '26 March',
+    date: '26 March 2026',
     time: '08:00',
     location: 'school'
   },
   {
     name: 'Prefect Induction Workshop',
     status: '',
-    date: '29 January',
+    date: '29 January 2026',
     time: '07:40',
     location: 'school'
   },
   {
     name: 'SCHOOL OPENING MASS, Prefect Pledge and blessing.',
     status: '',
-    date: '30 January',
+    date: '30 January 2026',
     time: '07:40',
     location: 'St. Pauls Catholic Church'
   },
   {
     name: 'Human Traffic Awareness Talk (Grade 5 to 7)',
     status: '',
-    date: '05 February',
+    date: '05 February 2026',
     time: '07:40',
     location: 'school Hall'
   },
@@ -68,41 +68,41 @@ export const noticeboardData = {
     {
     name: 'Annual General Meeting  Foundation Phase (Grade R to 3)',
     status: '',
-    date: '14 February',
+    date: '14 February 2026',
     time: '07:40',
     location: 'school Hall'
   },
   {
     name: 'ASH WEDNESDAY',
     status: '',
-    date: '18 February',
+    date: '18 February 2026',
     time: '07:40',
     location: 'St. Pauls Catholic Church'
   },
   {
     name: 'Annual General Meeting  Intermediate & Senior Phase',
     status: '',
-    date: '21 February',
+    date: '21 February 2026',
     time: '07:40',
     location: 'school Hall'
   },
   {
     name: 'SCHOOL MASS - Catholic Schools Teachers’ Day (Mogwase)',
     status: '',
-    date: '27 February',
+    date: '27 February 2026',
     time: '07:40',
     location: 'school'
   },
   {
     name: 'END OF TERM THANKSGIVING MASS',
     status: '',
-    date: '18 March',
+    date: '18 March 2026',
     time: '07:40',
     location: 'St. Pauls Catholic Church'
   }, {
     name: 'Issuing of Term 1 Report Cards',
     status: '',
-    date: '27 March',
+    date: '27 March 2026',
     time: '07:40',
     location: 'school classrooms'
   }
