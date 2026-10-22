@@ -3,7 +3,8 @@
    ============================================ */
 
 :root {
-  --navbar-height: 70px;
+  --navbar-height: 56px;
+  --footer-height: 60px;
   --page-bg: #ffffff;
   --text-color: #212529;
   --school-blue: #003366;
@@ -24,6 +25,7 @@
 html, body, #root {
   height: 100%;
   margin: 0;
+  overflow: hidden;
   background-color: var(--page-bg);
   color: var(--text-color);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -144,7 +146,7 @@ main, .app-root, .page {
   border-bottom: 3px solid var(--school-yellow) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1030;
-  height: var(--navbar-height);
+  min-height: var(--navbar-height);
 }
 
 /* Brand Styling */
@@ -154,10 +156,12 @@ main, .app-root, .page {
   display: flex;
   align-items: center;
   text-decoration: none;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .school-navbar .navbar-brand img {
-  height: 50px;
+  height: 40px;
   width: auto;
   margin-right: 10px;
   border: 2px solid var(--school-yellow);
@@ -207,14 +211,21 @@ main, .app-root, .page {
 
 /* App Layout */
 .app-container {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .main-content {
   flex: 1;
-  padding-top: 70px; /* Navbar height */
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  padding-top: var(--navbar-height);
+  padding-bottom: var(--footer-height);
 }
 
 /* Home page exception - carousel goes under navbar */
@@ -227,8 +238,8 @@ main, .app-root, .page {
   height: 70vh;
   min-height: 600px;
   overflow: hidden;
-  margin-top: -70px; /* Negative margin to pull carousel up */
-  padding-top: 70px; /* Push content down but keep background image at top */
+  margin-top: calc(0px - var(--navbar-height));
+  padding-top: var(--navbar-height);
 }
 
 .hero-carousel-container {
@@ -829,26 +840,48 @@ main, .app-root, .page {
 .school-footer {
   background-color: var(--school-blue);
   color: white;
-  padding: 1.5rem 0;
-  margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+  width: 100%;
+  height: var(--footer-height);
+  padding: 0;
   border-top: 3px solid var(--school-yellow);
+  display: flex;
+  align-items: center;
 }
 
 .footer-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 1.5rem;
-  text-align: center;
+  justify-content: space-between;
+  gap: 1rem;
+  text-align: left;
 }
 
-@media (min-width: 768px) {
-  .footer-content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-  }
+.school-footer .footer-motto,
+.school-footer .footer-links {
+  display: none !important;
+}
+
+.school-footer .footer-copyright p {
+  font-size: 0.75rem !important;
+}
+
+.school-footer .footer-copyright small {
+  font-size: 0.65rem !important;
+}
+
+.school-footer .footer-contact {
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.school-footer .contact-btn {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
 }
 
 .footer-motto {
@@ -943,6 +976,10 @@ main, .app-root, .page {
    ============================================ */
 
 @media (max-width: 767.98px) {
+  :root {
+    --footer-height: 42px;
+  }
+
   /* Global Mobile Adjustments */
   h1 {
     font-size: 2rem;
@@ -1007,36 +1044,27 @@ main, .app-root, .page {
   }
   
   /* Footer Mobile */
-  .footer-content {
-    gap: 1rem;
-  }
-  
-  .footer-motto {
+  .school-footer .footer-content {
     justify-content: center;
+    gap: 0;
   }
-  
-  .footer-contact {
+
+  .school-footer .footer-contact,
+  .school-footer .footer-copyright small {
+    display: none;
+  }
+
+  .school-footer .footer-copyright {
     width: 100%;
-    justify-content: center;
+    padding: 0;
+    text-align: center;
   }
-  
-  .contact-btn {
-    min-width: 100px;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-  
-  .footer-copyright {
-    order: 1;
-    width: 100%;
-  }
-  
-  .footer-motto {
-    order: 2;
-  }
-  
-  .footer-contact {
-    order: 3;
+
+  .school-footer .footer-copyright p {
+    overflow: hidden;
+    font-size: 0.68rem !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   
   /* Cards Mobile */

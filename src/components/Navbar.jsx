@@ -1,20 +1,20 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+
+export const navLinks = [
+  { path: '/', label: 'Home' },
+  { path: '/noticeboard', label: 'Noticeboard' },
+  { path: '/ourschool', label: 'Our School' },
+  { path: '/media', label: 'Media' },
+  { path: '/studentlife', label: 'Student Life' },
+  { path: '/staff', label: 'Staff' },
+  { path: '/contact', label: 'Contact' },
+];
 
 function SchoolNavbar() {
   const location = useLocation();
   const [expanded, setExpanded] = useState(false);
-  
-  // Navigation links - Added StudentLife
-  const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/noticeboard', label: 'Noticeboard' },
-    { path: '/ourschool', label: 'Our School' },
-    { path: '/media', label: 'Media' },
-    { path: '/studentlife', label: 'Student Life' },  // Added
-    { path: '/staff', label: 'Staff' },
-  ];
 
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/';
@@ -56,11 +56,11 @@ function SchoolNavbar() {
 
   return (
     <Navbar
-      expand="lg"
+      expand="xl"
       expanded={expanded}
       style={navbarStyle}
       fixed="top"
-      className="py-2"
+      className="school-navbar py-1"
     >
       <Container fluid>
         {/* Left Logo - School Logo */}
@@ -74,7 +74,7 @@ function SchoolNavbar() {
             src="/assets/school-logo.png"
             alt="School Logo"
             style={{
-              height: '50px',
+              height: '40px',
               width: 'auto',
             }}
             className="d-inline-block align-top"
@@ -123,7 +123,7 @@ function SchoolNavbar() {
               src="/assets/catholic-logo.png"
               alt="Catholic Education"
               style={{
-                height: '50px',
+                height: '40px',
                 width: 'auto',
               }}
               className="d-inline-block align-top"
