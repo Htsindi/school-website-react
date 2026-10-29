@@ -2,18 +2,18 @@ export const noticeboardData = {
   currentDate: new Date(),
   
   latestMessage: {
-    title: "Welcome to 2026 Academic Year",
-    content: "School reopens on January 12th, 2026. Please ensure all students arrive by 7:30 AM for the opening assembly.",
-    date: "2026-01-03",
+    title: "Welcome to 2027 Academic Year",
+    content: "School reopens on January 12th, 2027. Please ensure all students arrive by 7:30 AM for the opening assembly.",
+    date: "2027-01-03",
     priority: "high"
   },
   
   academicQuarters: [
     {
       id: 1,
-      name: 'Term 1 (Jan - Mar 2026)',
-      StartDate: '2026-01-12',
-      EndDate: '2026-03-27',
+      name: 'Term 1 (Jan - Mar 2027)',
+      StartDate: '2027-01-13',
+      EndDate: '2027-03-19',
       status: '', // Will be calculated dynamically
       image: '/assets/summer.png',
       googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM1_FOLDER_ID',
@@ -22,7 +22,7 @@ export const noticeboardData = {
   {
     name: 'Inter-house Athletics',
     status: '',
-    date: '2026-02-06',
+    date: '2027-02-06',
     time: '08:00',
     location: 'School Grounds',
     priority: 'low'
@@ -30,7 +30,7 @@ export const noticeboardData = {
   {
     name: 'Reopening for learners; inaugural assembly; classroom allocation',
     status: '',
-    date: '2026-01-14',
+    date: '2027-01-14',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -38,7 +38,7 @@ export const noticeboardData = {
   {
     name: 'Fun Day',
     status: '',
-    date: '2026-03-26',
+    date: '2027-03-26',
     time: '08:00',
     location: 'school',
     priority: 'low'
@@ -46,7 +46,7 @@ export const noticeboardData = {
   {
     name: 'Prefect Induction Workshop',
     status: '',
-    date: '2026-01-29',
+    date: '2027-01-29',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -54,7 +54,7 @@ export const noticeboardData = {
   {
     name: 'SCHOOL OPENING MASS, Prefect Pledge and blessing.',
     status: '',
-    date: '2026-01-30',
+    date: '2027-01-30',
     time: '07:40',
     location: 'St. Pauls Catholic Church',
     priority: 'low'
@@ -62,7 +62,7 @@ export const noticeboardData = {
   {
     name: 'Human Traffic Awareness Talk (Grade 5 to 7)',
     status: '',
-    date: '2026-02-05',
+    date: '2027-02-05',
     time: '07:40',
     location: 'school Hall',
     priority: 'low'
@@ -70,7 +70,7 @@ export const noticeboardData = {
   {
     name: 'Greater Taung and Kagisano Molopo Athletics',
     status: '',
-    date: '2026-02-13',
+    date: '2027-02-13',
     time: '07:40',
     location: 'Mokgareng High School, Taung',
     priority: 'low'
@@ -78,7 +78,7 @@ export const noticeboardData = {
     {
     name: 'Annual General Meeting  Foundation Phase (Grade R to 3)',
     status: '',
-    date: '2026-02-14',
+    date: '2027-02-14',
     time: '07:40',
     location: 'school Hall',
     priority: 'low'
@@ -86,7 +86,7 @@ export const noticeboardData = {
   {
     name: 'ASH WEDNESDAY',
     status: '',
-    date: '2026-02-18',
+    date: '2027-02-18',
     time: '07:40',
     location: 'St. Pauls Catholic Church',
     priority: 'low'
@@ -94,7 +94,7 @@ export const noticeboardData = {
   {
     name: 'Annual General Meeting  Intermediate & Senior Phase',
     status: '',
-    date: '2026-02-21',
+    date: '2027-02-21',
     time: '07:40',
     location: 'school Hall',
     priority: 'low'
@@ -102,7 +102,7 @@ export const noticeboardData = {
   {
     name: 'SCHOOL MASS - Catholic Schools Teachers’ Day (Mogwase)',
     status: '',
-    date: '2026-02-27',
+    date: '2027-02-27',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -110,7 +110,7 @@ export const noticeboardData = {
   {
     name: 'END OF TERM THANKSGIVING MASS',
     status: '',
-    date: '2026-03-18',
+    date: '2027-03-18',
     time: '07:40',
     location: 'St. Pauls Catholic Church',
     priority: 'low'
@@ -118,17 +118,17 @@ export const noticeboardData = {
   {
     name: 'Issuing of Term 1 Report Cards',
     status: '',
-    date: '2026-03-27',
+    date: '2027-03-27',
     time: '07:40',
     location: 'school classrooms'
   }
 ]},
 {
     id: 2,
-      name: 'Term 2 (Apr - Jun 2026)',
+      name: 'Term 2 (Apr - Jun 2027)',
       status: '',
-      startDate: '2026-04-08',
-      endDate: '2026-06-26',
+      startDate: '2027-04-06',
+      endDate: '2027-06-25',
       image: '/assets/autumn.png',
       googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM2_FOLDER_ID',
       activities: 
@@ -136,7 +136,7 @@ export const noticeboardData = {
   {
     name: 'Reopening for Admin Staff and General Staff',
     status: '',
-    date: '2026-04-07',
+    date: '2027-04-07',
     time: '08:00',
     location: 'school offices',
     priority: 'low'
@@ -144,7 +144,7 @@ export const noticeboardData = {
   {
     name: 'Reopening for learners and teaching staff',
     status: '',
-    date: '2026-04-08',
+    date: '2027-04-08',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -152,7 +152,7 @@ export const noticeboardData = {
    {
     name: 'One-on-One Parent Support and Intervention Meeting (Grade R–7)',
     status: '',
-    date: '2026-04-16',
+    date: '2027-04-16',
     time: '07:40',
     location: 'school Classesrooms',
     priority: 'low'
@@ -160,7 +160,7 @@ export const noticeboardData = {
   {
     name: 'SCHOOL MASS',
     status: '',
-    date: '2026-04-30',
+    date: '2027-04-30',
     time: '07:40',
     location: 'St. Pauls Catholic Church',
     priority: 'low'
@@ -168,7 +168,7 @@ export const noticeboardData = {
   {
     name: 'Deadline for Conquesta Registration/Entry',
     status: '',
-    date: '2026-05-04',
+    date: '2027-05-04',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -176,7 +176,7 @@ export const noticeboardData = {
   {
     name: 'SCHOOL MASS:  SACRED HEART DAY',
     status: '',
-    date: '2026-05-29',
+    date: '2027-05-29',
     time: '07:40',
     location: 'St. Pauls Catholic Church',
     priority: 'low'
@@ -184,7 +184,7 @@ export const noticeboardData = {
   {
     name: 'Library Competition: Spelling Bee and Reading Challenge',
     status: '',
-    date: '2026-06-15',
+    date: '2027-06-15',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -192,7 +192,7 @@ export const noticeboardData = {
   {
     name: 'Inter-house Indoor Games',
     status: '',
-    date: '2026-05-29',
+    date: '2027-05-29',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -200,7 +200,7 @@ export const noticeboardData = {
   {
     name: 'Fun Day',
     status: '',
-    date: '2026-06-25',
+    date: '2027-06-25',
     time: '08:00',
     location: 'School Grounds',
     priority: 'low'
@@ -208,7 +208,7 @@ export const noticeboardData = {
   {
     name: 'Issuing of Term 2 Report Cards',
     status: '',
-    date: '2026-06-26',
+    date: '2027-06-26',
     time: '07:40',
     location: 'school classrooms',
     priority: 'low'
@@ -216,9 +216,9 @@ export const noticeboardData = {
 ]},
     {
       id: 3,
-      name: 'Term 3 (Jul - Sep 2026)',
-      StartDate: '2026-07-21',
-      EndDate: '2026-09-23',
+      name: 'Term 3 (Jul - Oct 2027)',
+      StartDate: '2027-07-20',
+      EndDate: '2027-10-01',
       status: '',
       image: '/assets/winter.png',
       googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM3_FOLDER_ID',
@@ -227,7 +227,7 @@ export const noticeboardData = {
   {
     name: 'Reopening for Admin Staff and General Staff',
     status: '',
-    date: '2026-07-20',
+    date: '2027-07-20',
     time: '08:00',
     location: 'school Offices',
     priority: 'low'
@@ -235,7 +235,7 @@ export const noticeboardData = {
   {
     name: 'Reopening for learners and teaching staff',
     status: 'One on One Parent Support and Intervention Meeting (Grade R to 7)',
-    date: '2026-07-28',
+    date: '2027-07-28',
     time: '08:00',
     location: 'School Classrooms',
     priority: 'low'
@@ -243,7 +243,7 @@ export const noticeboardData = {
   {
     name: 'School Mass',
     status: '',
-    date: '2026-07-31',
+    date: '2027-07-31',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -251,7 +251,7 @@ export const noticeboardData = {
   {
     name: 'Science, Mathematics and Technology Expo',
     status: '',
-    date: '2026-07-31',
+    date: '2027-07-31',
     time: '07:40',
     location: 'To be confirmed',
     priority: 'low'
@@ -259,7 +259,7 @@ export const noticeboardData = {
   {
     name: 'School Mass',
     status: '',
-    date: '2026-08-28',
+    date: '2027-08-28',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -267,7 +267,7 @@ export const noticeboardData = {
   {
     name: 'End of term Mass and Thanksgiving',
     status: '',
-    date: '2026-09-18',
+    date: '2027-09-18',
     time: '08:00',
     location: 'St. Pauls Catholic Church',
     priority: 'low'
@@ -275,7 +275,7 @@ export const noticeboardData = {
   {
     name: 'Heritage Day and Official Closing Date',
     status: '',
-    date: '2026-09-23',
+    date: '2027-09-23',
     time: '08:00',
     location: 'school',
     priority: 'low'
@@ -283,9 +283,9 @@ export const noticeboardData = {
   ]  }  ,
     {
       id: 4,
-      name: 'Term 4 (Oct - Dec 2026)',
-      startDate: '2026-10-06',
-      endDate: '2026-12-11',
+      name: 'Term 4 (Oct - Dec 2027)',
+      startDate: '2027-10-11',
+      endDate: '2027-12-10',
       status: '',
       image: '/assets/spring.png',
       googleFolder: 'https://drive.google.com/drive/folders/YOUR_TERM4_FOLDER_ID',
@@ -294,7 +294,7 @@ export const noticeboardData = {
   {
     name: 'Reopening for Admin Staff and General Staff',
     status: '',
-    date: '2026-10-05',
+    date: '2027-10-05',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -302,7 +302,7 @@ export const noticeboardData = {
   {
     name: 'Reopening for learners and teaching staff',
     status: '',
-    date: '2026-10-06',
+    date: '2027-10-06',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -310,7 +310,7 @@ export const noticeboardData = {
   {
     name: 'Academic Support: Extra Classes, Revision and Intervention Programmes (Wednesdays: 13h10–14h50)',
     status: '',
-    date: '2026-10-21',
+    date: '2027-10-21',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -318,7 +318,7 @@ export const noticeboardData = {
   {
     name: 'Educational Trip Foundation Phase ',
     status: '',
-    date: '2026-10-16',
+    date: '2027-10-16',
     time: '07:40',
     location: 'To be confirmed',
     priority: 'low'
@@ -326,7 +326,7 @@ export const noticeboardData = {
    {
     name: 'Educational Trip Grade R',
     status: '',
-    date: '2026-11-20',
+    date: '2027-11-20',
     time: '07:40',
     location: 'To be confirmed',
     priority: 'low'
@@ -334,7 +334,7 @@ export const noticeboardData = {
     {
     name: 'CLOSING MASS FOR THE YEAR AND EXAM BLESSINGS',
     status: '',
-    date: '2026-10-30',
+    date: '2027-10-30',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -342,7 +342,7 @@ export const noticeboardData = {
   {
     name: 'Christmas Play Presented by Foundation Phase (Family Picnic Day Celebration)',
     status: '',
-    date: '2026-11-24',
+    date: '2027-11-24',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -350,7 +350,7 @@ export const noticeboardData = {
   {
     name: 'Grade R Graduation and Prize-giving For Grade 1–6',
     status: '',
-    date: '2026-11-26',
+    date: '2027-11-26',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -358,7 +358,7 @@ export const noticeboardData = {
   {
     name: 'Grade 7 Farewell and Prize-giving',
     status: '',
-    date: '2026-11-27',
+    date: '2027-11-27',
     time: '07:40',
     location: 'school',
     priority: 'low'
@@ -369,17 +369,17 @@ export const noticeboardData = {
   additionalAnnouncements: [
     {
       id: 1,
-      title: "2026 School Calendar",
-      content: "The complete 2026 academic calendar is now available. Download it from the school portal.",
-      date: "2026-12-15",
+      title: "2027 School Calendar",
+      content: "The complete 2027 academic calendar is now available. Download it from the school portal.",
+      date: "2027-12-15",
       borderColor: "border-warning",
       icon: "📅"
     },
     {
       id: 2,
       title: "Grade 7 Applications",
-      content: "Applications for Grade 7 (2026 intake) open on February 1st, 2026. Early applications encouraged.",
-      date: "2026-12-20",
+      content: "Applications for Grade 7 (2027 intake) open on February 1st, 2027. Early applications encouraged.",
+      date: "2027-12-20",
       borderColor: "border-info",
       icon: "🎓"
     },
@@ -387,7 +387,7 @@ export const noticeboardData = {
       id: 3,
       title: "New Learning Resources",
       content: "Digital learning platform updated with new resources for all grades. Parents can access via parent portal.",
-      date: "2026-12-28",
+      date: "2027-12-28",
       borderColor: "border-success",
       icon: "💻"
     }

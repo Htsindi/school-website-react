@@ -59,21 +59,21 @@ export const homeData = {
   announcements: [
     {
       id: 1,
-      text: "Upcoming: Parent-Teacher Meetings - February 15-20, 2026",
+      text: "Upcoming: Parent-Teacher Meetings - February 15-20, 2027",
       icon: "🎓",
       dateIcon: "📅",
       isActive: true
     },
     {
       id: 2,
-      text: "Annual Sports Day - March 10, 2026",
+      text: "Annual Sports Day - March 10, 2027",
       icon: "🏆",
       dateIcon: "📅",
       isActive: false
     },
     {
       id: 3,
-      text: "Enrollment for 2024-25 Academic Year Now Closed",
+      text: "Enrollment for 2026-27 Academic Year Now Closed",
       icon: "📝",
       dateIcon: "📅",
       isActive: false

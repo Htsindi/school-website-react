@@ -35,7 +35,7 @@ function OurSchool() {
                 <div className="mt-4">
                   <h5 style={{ color: '#003366' }}>Key Milestones</h5>
                   <ul className="timeline">
-                    <li><strong>1995:</strong> School founded with 50 students</li>
+                    <li><strong>2000:</strong> School founded with 50 students</li>
                     <li><strong>2005:</strong> New campus construction completed</li>
                     <li><strong>2015:</strong> Achieved 100% pass rate for 5 consecutive years</li>
                     <li><strong>2023:</strong> Awarded "Excellence in Education" recognition</li>
@@ -57,8 +57,8 @@ function OurSchool() {
                   }}
                 >
                   <div className="text-center">
-                    <h3 style={{ color: '#FFD700' }}>Est. 1995</h3>
-                    <p>30+ Years of Excellence</p>
+                    <h3 style={{ color: '#FFD700' }}>Est. 2000</h3>
+                    <p>25+ Years of Excellence</p>
                   </div>
                 </div>
               </div>
@@ -174,10 +174,7 @@ function OurSchool() {
               "To promote cordial relationship among learners an educators, between the home and the school",
               "To produce a disciplined society through the behaviour of our learners",
               "We inculcate in our children faith in God through Bible Studies and moral education",
-              "The children are encouraged to accept responsibility for their actions",
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-              "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-              "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+              "The children are encouraged to accept responsibility for their actions"
             ].map((objective, index) => (
               <Col md={6} lg={3} key={index}>
                 <Card className="h-100 border-start border-4 border-primary">
@@ -211,13 +208,13 @@ function OurSchool() {
           <Row className="text-center">
             <Col md={3} className="mb-3 mb-md-0">
               <div className="stat-item">
-                <h3 style={{ color: '#FFD700' }}>30+</h3>
+                <h3 style={{ color: '#FFD700' }}>25+</h3>
                 <p className="mb-0" style={{ color: 'white' }}>Years of Excellence</p>
               </div>
             </Col>
             <Col md={3} className="mb-3 mb-md-0">
               <div className="stat-item">
-                <h3 style={{ color: '#FFD700' }}>700+</h3>
+                <h3 style={{ color: '#FFD700' }}>600+</h3>
                 <p className="mb-0" style={{ color: 'white' }}>Students Enrolled</p>
               </div>
             </Col>

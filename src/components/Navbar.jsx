@@ -105,7 +105,8 @@ function SchoolNavbar() {
                 to={link.path}
                 style={isActive(link.path) ? activeNavLinkStyle : navLinkStyle}
                 onClick={handleLinkClick}
-                className="text-center"
+                className={`text-center${isActive(link.path) ? ' active' : ''}`}
+                aria-current={isActive(link.path) ? 'page' : undefined}
               >
                 {link.label}
               </Nav.Link>
